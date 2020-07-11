@@ -1,0 +1,22 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  @apply font-default text-base;
+}
+
+/* $black: #000;
+$black-lighten-1: #232323;
+
+$white: #FFF;
+
+$font-1: Cormorant, serif;
+$font-logo: 'Crimson Text', serif;
+ */
