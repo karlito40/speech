@@ -1,6 +1,22 @@
+Design:
+  ☐ Revoir le placement et le design des liens connexions/inscriptions
+
+Design System:
+  ☐ Button 
+  ☐ Icones
+
+Intégration:
+  ✔ Landing @done(20-08-16 16:48)
+  ☐ SignIn
+  ☐ Signup
+  ☐ MessageList
+  ☐ MessageRoom
+  ☐ DailyProfil
+  ☐ Settings
+
 Manifest:
 ✔ Passer les icones en losange @done(20-07-14 18:43)
 
 Animation:
-☐ Transition entre splash et landing 
-☐ Landing: "Ici pas de chichi. Oubliez les stéréotypes... les mensonges... le faux... Ton arme ? Ta prose. Toi."
+✔ Transition entre splash et landing @done(20-08-16 16:46)
+✔ Landing: "Ici pas de chichi. Oubliez les stéréotypes... les mensonges... le faux... Ton arme ? Ta prose. Toi." @done(20-08-16 16:46)
