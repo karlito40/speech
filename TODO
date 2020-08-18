@@ -1,5 +1,5 @@
 Design:
-  ☐ Revoir le placement et le design des liens connexions/inscriptions
+  ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
 
 Design System:
   ☐ Button 
@@ -7,6 +7,10 @@ Design System:
 
 Intégration:
   ✔ Landing @done(20-08-16 16:48)
+  ☐ Onboarding @started(20-08-18 20:46)
+    ☐ Placeholder image (empty block) while loading to prevent glitches
+    ☐ Carousel component @started(20-08-18 22:52)
+      ☐ Improve right swipe dot detection (its too much naive right now) 
   ☐ SignIn
   ☐ Signup
   ☐ MessageList

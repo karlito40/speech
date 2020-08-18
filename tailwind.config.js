@@ -9,9 +9,10 @@ module.exports = {
     extend: {
       fontFamily: {
         logo: "'Crimson Text', serif",
+        'sans-serif': "'Open sans', Arial, sans-serif",
         // headline3: "'Cormorant Upright', serif",
         // headline3: "'PT Serif', serif",
-        default: "'PT Serif', serif"
+        serif: "'PT Serif', serif"
       },
       fontSize: {
         'xs': '.75rem',
@@ -26,7 +27,9 @@ module.exports = {
       },
       colors: {
         gray: {
-          '900': '#232323'
+          '900': '#232323',
+          '300': "#dcdcdc",
+          '100': "#F7F7F7",
         }
       }
     },
@@ -42,6 +45,7 @@ module.exports = {
           right: 0,
           bottom: 0,
           left: 0,
+          overflow: 'auto'
         }
       })
     }),

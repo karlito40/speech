@@ -29,7 +29,6 @@
 import { gsap } from 'gsap'
 import { defineComponent } from 'vue'
 
-
 export default defineComponent({
   methods: {
     animateIntro (tl: gsap.core.Timeline, $scene: HTMLElement) {
@@ -55,16 +54,21 @@ export default defineComponent({
   },
 
   mounted () {
-    const tl = gsap.timeline()
+    this.tl = gsap.timeline()
 
-    this.animateIntro(tl, this.$el.querySelector('[data-scene="intro"]'))
-    this.animateLabels(tl, [...this.$el.querySelectorAll('[data-scene="label"]')])
-    tl.then(() => this.$router.push('/sign'))
+    this.animateIntro(this.tl, this.$el.querySelector('[data-scene="intro"]'))
+    this.animateLabels(this.tl, [...this.$el.querySelectorAll('[data-scene="label"]')])
+    
+    this.tl.then(() => this.$router.push('/sign'))
+  },
+
+  unmounted () {
+    this.tl.kill()
   }
 })
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 [data-scene="label"] {
   @apply flex items-center justify-center;
   opacity: 0; /* prevent glitches */
