@@ -11,7 +11,7 @@ export const router = createRouter({
   strict: true,
   routes: [
     { path: '/', component: LandingView },
-    { path: '/onboarding', component: OnboardingView },
+    { path: '/onboard', component: OnboardingView },
     { path: '/offline', component: OfflineView },
     { path: '/sign', component: SignView },
   ]

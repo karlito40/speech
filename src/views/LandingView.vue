@@ -59,7 +59,7 @@ export default defineComponent({
     this.animateIntro(this.tl, this.$el.querySelector('[data-scene="intro"]'))
     this.animateLabels(this.tl, [...this.$el.querySelectorAll('[data-scene="label"]')])
     
-    this.tl.then(() => this.$router.push('/sign'))
+    this.tl.then(() => this.$router.push('/onboard'))
   },
 
   unmounted () {

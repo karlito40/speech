@@ -46,8 +46,10 @@
         class="dot"
       ></div>
     </div>
-    <button class="bg-gray-900 text-white font-bold rounded-lg p-2 mb-4">Inscription</button>
-    <button class="bg-gray-100 text-gray-900 font-bold rounded-lg p-2">Connexion</button>
+    <div class="flex flex-col">
+      <button class="bg-gray-900 text-white font-bold rounded-lg p-2 mb-4">Inscription</button>
+      <button class="bg-gray-100 text-gray-900 font-bold rounded-lg p-2">Connexion</button>
+    </div>
   </div>
 </template>
 
@@ -74,6 +76,8 @@ export default defineComponent({
 <style scoped>
 .OnboardingView {
   @apply flex flex-col text-center justify-center px-8 py-4;
+  opacity: 0;
+  animation: 0.8s -slide-in-y 0.2s forwards;
 }
 
 .carousel {
@@ -94,9 +98,8 @@ export default defineComponent({
 }
 
 .slide img {
-  @apply px-8;
-  width: 100%;
-  max-width: 20rem;
+  width: 16rem;
+  height: 13rem;
   margin: 0 auto;
 }
 
