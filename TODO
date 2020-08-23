@@ -1,15 +1,21 @@
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
 
+Accessibilité:
+  ☐ Ouvrir les modales à partir du router 
+
 Design System:
   ☐ Button 
   ☐ Icones
+  ☐ Modal
 
 Intégration:
   ✔ Landing @done(20-08-16 16:48)
+    ☐ Refactor 
   ☐ Onboarding @started(20-08-18 20:46)
-    ☐ Placeholder image (empty block) while loading to prevent glitches
-    ☐ Carousel component @started(20-08-18 22:52)
+    ☐ Refactor
+    ✔ Placeholder image (empty block) while loading to prevent glitches @done(20-08-23 20:00)
+    ✔ Carousel component @started(20-08-18 22:52) @done(20-08-23 20:00) @lasted(4d21h8m26s)
       ☐ Improve right swipe dot detection (its too much naive right now) 
   ☐ SignIn
   ☐ Signup

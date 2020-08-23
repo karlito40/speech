@@ -1,75 +1,83 @@
 <template>
   <div class="OnboardingView fullscreen font-sans-serif">
     <div class="font-logo font-bold text-4xl mb-6">Speech</div>
-    <div 
-      class="carousel -mx-8"
-      @scroll="onScroll"
-    >
-      <div class="slide px-8">
+    <Carousel carouselClass="-mx-8">
+      <CarouselItem class="px-8">
         <img src="imgs/cartoon-go-muscu.jpg" alt="">
         <div class="font-semibold mb-2">L'aventure commence</div>
         <div class="leading-relaxed text-sm">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
-      </div>
-      <div class="slide px-8">
+      </CarouselItem>
+      <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-writer.jpg" alt="">
         <div class="font-semibold mb-2">L'aventure commence</div>
         <div class="leading-relaxed text-sm">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
-      </div>
-      <div class="slide px-8">
+      </CarouselItem>
+      <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-letter.jpg" alt="">
         <div class="font-semibold mb-2">L'aventure commence</div>
         <div class="leading-relaxed text-sm">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
-      </div>
-      <div class="slide px-8">
+      </CarouselItem>
+      <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-match.jpg" alt="">
         <div class="font-semibold mb-2">L'aventure commence</div>
         <div class="leading-relaxed text-sm">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
-      </div>
-    </div>
-    <div class="selectors flex justify-center mt-8 mb-12 cursor-pointer">
-      <div 
-        v-for="(slide, index) in slides" 
-        :key="index"
-        :data-state="dot === index ? 'active' : 'idle'"
-        class="dot"
-      ></div>
-    </div>
+      </CarouselItem>
+    </Carousel>
     <div class="flex flex-col">
-      <button class="bg-gray-900 text-white font-bold rounded-lg p-2 mb-4">Inscription</button>
-      <button class="bg-gray-100 text-gray-900 font-bold rounded-lg p-2">Connexion</button>
+      <button 
+        class="bg-gray-900 text-white font-bold rounded-lg p-2 mb-4"
+        @click="showModal = true"
+      >
+        Inscription
+      </button>
+      <button 
+        class="bg-gray-100 text-gray-900 font-bold rounded-lg p-2"
+        @click="addStuff = true"
+      >
+        Connexion
+      </button>
     </div>
+
+    <Modal 
+      v-if="showModal" 
+      title="Inscription"
+      @close="showModal = false"
+    >
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus qui corrupti error ullam excepturi alias ad natus pariatur voluptates, sapiente at cupiditate eaque accusamus aperiam, eum totam recusandae deleniti! Ipsum.</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+    </Modal>
   </div>
 </template>
 
 <script lang="ts">
-import { debounce } from 'lodash-es'
 import { defineComponent } from 'vue'
+import Modal from '../components/Modal.vue'
+import Carousel, { CarouselItem } from '../components/Carousel.vue'
 
 export default defineComponent({
-  data: () => ({
-    dot: 0,
-    slides: ['todo', 'todo', 'todo', 'todo']
-  }),
+  components: { Modal, Carousel, CarouselItem },
 
-  methods: {
-    // todo: debounce
-    onScroll: debounce (function onScroll({ target }: { target: HTMLElement }) {
-      const slideWidth = this.$el.querySelector('.slide').offsetWidth
-      this.dot = Math.floor(target.scrollLeft / slideWidth)
-    }, 5)
-  }
+  data: () => ({
+    showModal: false,
+  })
 })
 </script>
 
@@ -78,39 +86,5 @@ export default defineComponent({
   @apply flex flex-col text-center justify-center px-8 py-4;
   opacity: 0;
   animation: 0.8s -slide-in-y 0.2s forwards;
-}
-
-.carousel {
-  scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-  display: flex;
-  ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.carousel::-webkit-scrollbar { /* Chrome */
-  display: none;
-}
-
-.carousel .slide {
-  scroll-snap-align: center;
-  flex: 0 0 100%;
-}
-
-.slide img {
-  width: 16rem;
-  height: 13rem;
-  margin: 0 auto;
-}
-
-.dot {
-  @apply rounded-full h-2 w-2 bg-gray-300;
-  margin: 0 0.3rem;
-  transition: 0.2s background-color;
-}
-
-
-.dot[data-state="active"] {
-  @apply bg-gray-900;
 }
 </style>

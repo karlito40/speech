@@ -69,6 +69,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.fullscreen {
+  overflow: hidden;
+}
+
 [data-scene="label"] {
   @apply flex items-center justify-center;
   opacity: 0; /* prevent glitches */

@@ -1,3 +1,5 @@
 # speech-pwa
 
-WIP: repo use as a backup strategy
+WIP: This repo is use as a backup strategy
+
+The project is currently in a mockup/experiment state. 
