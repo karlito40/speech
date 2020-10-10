@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
 import gsap from 'gsap'
 
 export default defineComponent({
@@ -31,27 +31,38 @@ export default defineComponent({
     }
   },
 
-  mounted () {
-    this.tl = gsap.timeline();
+  setup () {
+    const mask = ref<HTMLElement>()
+    const body = ref<HTMLElement>()
+    const header = ref<HTMLElement>()
+    const content = ref<HTMLElement>()
+    const tl = gsap.timeline()
 
-    this.tl.fromTo(
-      this.$refs.mask, 
-      { y: 0 },
-      { y: '-100%', duration: 0.9 },
-      0
-    )
-    this.tl.fromTo(
-      this.$refs.body, 
-      { y: 0 },
-      { y: '-100%', duration: 0.7 },
-      0.2
-    )
-    this.tl.fromTo(
-      [this.$refs.header, this.$refs.content],
-      { opacity: 0, y: 15 },
-      { opacity: 1, y: 0 },
-      '-=0.3'  
-    )
+    onMounted(() => {
+      // enforce by some typescript bullshitery
+      mask.value && tl.fromTo(
+        mask.value,
+        { y: 0 },
+        { y: '-100%', duration: 0.9 },
+        0
+      )
+      body.value && tl.fromTo(
+        body.value, 
+        { y: 0 },
+        { y: '-100%', duration: 0.7 },
+        0.2
+      )
+      tl.fromTo(
+        [header.value, content.value],
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0 },
+        '-=0.3'  
+      )
+    })
+
+    onUnmounted(() => tl.kill())
+
+    return { mask, body, header, content }
   }
 })
 </script>

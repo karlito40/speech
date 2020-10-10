@@ -25,7 +25,7 @@ export const CarouselItem = defineComponent({
     return h('div', {
       ...this.$attrs,
       class: `carousel-item ${this.$attrs.class}` 
-    }, this.$slots.default())
+    }, this.$slots?.default?.())
   }
 })
 
@@ -38,8 +38,7 @@ export default defineComponent({
     const slideCount = ref(0)
 
     const getSlideNodes = () => {
-      if (!carousel.value) return []
-      return [...carousel.value?.querySelectorAll('.carousel-item')]
+      return carousel.value ? Array.from(carousel.value?.querySelectorAll('.carousel-item')) : []
     }
 
     const updateSlideCount = () => slideCount.value = getSlideNodes().length

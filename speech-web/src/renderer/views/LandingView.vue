@@ -1,5 +1,5 @@
 <template>
-  <div class="LandingView text-lg">
+  <div ref="root" class="LandingView text-lg">
     <section class="fullscreen bg-gray-900 z-50" data-scene="intro">
       <header class="p-8">
         <h1 class="text-4xl text-white uppercase">
@@ -27,43 +27,49 @@
 
 <script lang="ts">
 import { gsap } from 'gsap'
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+function animateIntro (tl: gsap.core.Timeline, $scene: Element) {
+  const $contentContainer = $scene.querySelector('.content')
+  const $titleText = $scene.querySelector('h1');
+  const $contentText = $contentContainer?.querySelector('p')
+
+  tl.fromTo($contentContainer, { y: '100%' }, { y: 0, duration: 0.7 })
+  tl.fromTo([$titleText, $contentText], { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, stagger: 0.6 }, '-=0.1')
+
+  tl.addLabel('leave', '+=1')
+  
+  tl.to($titleText, { y: -window.innerHeight * 0.6, duration: 1, ease: 'power2.in' }, 'leave')
+  tl.to($scene, { y: '-100%', duration: 1.2, ease: 'power2.in' }, 'leave')
+}
+
+function animateLabels (tl: gsap.core.Timeline, $scenes: Element[]) {
+  $scenes.forEach(($scene) => {
+    tl.fromTo($scene, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2 },)
+    tl.to($scene, { y: -20, opacity: 0, duration: 0.2, ease: 'power2.in' }, '+=1')
+  })
+}
 
 export default defineComponent({
-  methods: {
-    animateIntro (tl: gsap.core.Timeline, $scene: HTMLElement) {
-      const $contentContainer = $scene.querySelector('.content')
-      const $titleText = $scene.querySelector('h1');
-      const $contentText = $contentContainer?.querySelector('p')
+  setup () {
+    const router = useRouter()
+    const root = ref<HTMLElement>()
+    const tl = gsap.timeline()
 
-      tl.fromTo($contentContainer, { y: '100%' }, { y: 0, duration: 0.7 })
-      tl.fromTo([$titleText, $contentText], { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, stagger: 0.6 }, '-=0.1')
+    onMounted(() => {
+      const $intro = root.value?.querySelector('[data-scene="intro"]')
+      const $labels = root.value && Array.from(root.value.querySelectorAll('[data-scene="label"]'))
 
-      tl.addLabel('leave', '+=1')
-      
-      tl.to($titleText, { y: -window.innerHeight * 0.6, duration: 1, ease: 'power2.in' }, 'leave')
-      tl.to($scene, { y: '-100%', duration: 1.2, ease: 'power2.in' }, 'leave')
-    },
-
-    animateLabels (tl: gsap.core.Timeline, $scenes: HTMLElement[]) {
-      $scenes.forEach(($scene) => {
-        tl.fromTo($scene, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2 },)
-        tl.to($scene, { y: -20, opacity: 0, duration: 0.2, ease: 'power2.in' }, '+=1')
-      })
-    }
-  },
-
-  mounted () {
-    this.tl = gsap.timeline()
-
-    this.animateIntro(this.tl, this.$el.querySelector('[data-scene="intro"]'))
-    this.animateLabels(this.tl, [...this.$el.querySelectorAll('[data-scene="label"]')])
+      $intro && animateIntro(tl, $intro)
+      $labels && animateLabels(tl, $labels)
     
-    this.tl.then(() => this.$router.push('/onboard'))
-  },
+      tl.then(() => router.push('/onboard'))
+    });
 
-  unmounted () {
-    this.tl.kill()
+    onUnmounted(() => tl.kill())
+
+    return { root }
   }
 })
 </script>
