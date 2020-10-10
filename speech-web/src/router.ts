@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingView from '@/views/LandingView.vue'
-import OfflineView from '@/views/OfflineView.vue'
-import OnboardingView from '@/views/OnboardingView.vue'
-import SignView from '@/views/SignView.vue'
+import LandingView from '@/renderer/views/LandingView.vue'
+import OfflineView from '@/renderer/views/OfflineView.vue'
+import OnboardingView from '@/renderer/views/OnboardingView.vue'
+import SignView from '@/renderer/views/SignView.vue'
 
 const history = createWebHistory();
 
