@@ -1,19 +1,22 @@
 <template>
-  <div 
-    ref="carousel"
-    :class="['carousel', carouselClass]"
-    @scroll="onScroll"
-  >
-    <slot></slot>
-  </div>  
-  <div class="carousel-selector flex justify-center mt-8 mb-12 cursor-pointer">
+  <div class="Carousel">
     <div 
-      v-for="i in slideCount" 
-      :key="i"
-      :data-state="dot === i - 1 ? 'active' : 'idle'"
-      class="dot"
-    ></div>
-  </div>
+      ref="scrollable"
+      class="Carousel__scroll"
+      @scroll="onScroll"
+
+    >
+      <slot></slot>
+    </div>
+    <div class="flex justify-center mt-8 mb-12 cursor-pointer">
+      <div 
+        v-for="i in slideCount" 
+        :key="i"
+        :data-state="dot === i - 1 ? 'active' : 'idle'"
+        class="dot"
+      ></div>
+    </div>
+  </div>  
 </template>
 
 <script lang="ts">
@@ -30,21 +33,19 @@ export const CarouselItem = defineComponent({
 })
 
 export default defineComponent({
-  props: ['carouselClass'],
-
   setup () {
-    const carousel = ref<HTMLElement>()
+    const scrollable = ref<HTMLElement>()
     const dot = ref(0)
     const slideCount = ref(0)
 
     const getSlideNodes = () => {
-      return carousel.value ? Array.from(carousel.value?.querySelectorAll('.carousel-item')) : []
+      return scrollable.value ? Array.from(scrollable.value?.querySelectorAll('.carousel-item')) : []
     }
 
     const updateSlideCount = () => slideCount.value = getSlideNodes().length
     
     const onScroll = function ({ target }: { target: HTMLElement }) {
-      const slideWidth = carousel.value?.offsetWidth ?? 0
+      const slideWidth = scrollable.value?.offsetWidth ?? 0
       dot.value = Math.floor(target.scrollLeft / slideWidth)
     }
 
@@ -52,7 +53,7 @@ export default defineComponent({
     onUpdated(updateSlideCount) // meh
 
     return {
-      carousel,
+      scrollable,
       dot,
       slideCount,
       onScroll: debounce(onScroll, 5)
@@ -62,27 +63,20 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.carousel {
+.Carousel__scroll {
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
   display: flex;
   ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
-.carousel::-webkit-scrollbar { /* Chrome */
+.Carousel__scroll::-webkit-scrollbar { /* Chrome */
   display: none;
 }
 
-.carousel >>> .carousel-item {
+:deep(.carousel-item) {
   scroll-snap-align: center;
   flex: 0 0 100%;
-}
-
-.carousel >>> .carousel-item img {
-  width: 16rem;
-  height: 13rem;
-  margin: 0 auto;
 }
 
 .dot {

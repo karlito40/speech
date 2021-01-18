@@ -64,7 +64,7 @@ export default defineComponent({
       $intro && animateIntro(tl, $intro)
       $labels && animateLabels(tl, $labels)
     
-      tl.then(() => router.push('/onboard'))
+      tl.then(() => router.push('/onboarding'))
     });
 
     onUnmounted(() => tl.kill())

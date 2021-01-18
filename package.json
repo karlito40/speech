@@ -4,7 +4,7 @@
   "description": "WIP: This project is currently in a mockup/experimental state.",
   "main": "index.js",
   "scripts": {
-    "serve": "cd speech-web && npm run serve",
+    "dev": "cd speech-web && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +17,7 @@
   "bugs": {
     "url": "https://github.com/karlito40/speech/issues"
   },
-  "homepage": "https://github.com/karlito40/speech#readme"
+  "homepage": "https://github.com/karlito40/speech#readme",
+  "dependencies": {
+  }
 }

@@ -1,4 +1,4 @@
-import '@/assets/styles/theme.css'
+import './assets/styles/theme.css'
 import { createApp } from 'vue'
 // import { gsap, TextPlugin } from 'gsap/all'
 import { router } from './router'
@@ -11,3 +11,4 @@ const app = createApp(App)
 app
   .use(router)
   .mount('#app')
+

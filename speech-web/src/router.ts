@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingView from '@/renderer/views/LandingView.vue'
-import OfflineView from '@/renderer/views/OfflineView.vue'
-import OnboardingView from '@/renderer/views/OnboardingView.vue'
-import SignView from '@/renderer/views/SignView.vue'
+import LandingView from './renderer/views/LandingView.vue'
+import OfflineView from './renderer/views/OfflineView.vue'
+import OnboardingView from './renderer/views/OnboardingView.vue'
+import SignView from './renderer/views/SignView.vue'
 
 const history = createWebHistory();
 
@@ -11,7 +11,7 @@ export const router = createRouter({
   strict: true,
   routes: [
     { path: '/', component: LandingView },
-    { path: '/onboard', component: OnboardingView },
+    { path: '/onboarding', component: OnboardingView },
     { path: '/offline', component: OfflineView },
     { path: '/sign', component: SignView },
   ]

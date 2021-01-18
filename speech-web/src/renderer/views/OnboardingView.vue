@@ -1,7 +1,7 @@
 <template>
   <div class="OnboardingView fullscreen font-sans-serif">
     <div class="font-logo font-bold text-4xl mb-6">Speech</div>
-    <Carousel carouselClass="-mx-8">
+    <Carousel class="-mx-8">
       <CarouselItem class="px-8">
         <img src="imgs/cartoon-go-muscu.jpg" alt="">
         <div class="font-semibold mb-2">L'aventure commence</div>
@@ -86,5 +86,11 @@ export default defineComponent({
   @apply flex flex-col text-center justify-center px-8 py-4;
   opacity: 0;
   animation: 0.8s -slide-in-y 0.2s forwards;
+}
+
+img {
+  width: 16rem;
+  height: 13rem;
+  margin: 0 auto;
 }
 </style>
