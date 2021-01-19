@@ -1,17 +1,18 @@
 <template>
   <Teleport to="#modal-cluster">
-    <div class="modal fullscreen">
-      <div ref="mask" class="modal__mask scene bg-gray-900"></div>
-      <div ref="body" class="modal__body scene bg-white flex flex-col">
+    <div class="Modal fullscreen">
+      <div ref="mask" class="Modal__mask scene bg-gray-900"></div>
+      <div ref="body" class="Modal__body scene bg-white flex flex-col">
         <header
           ref="header" 
-          class="modal__header font-sans-serif font-semibold text-xl p-8"
-          @click="$emit('close')"
+          class="Modal__header"
+          tabindex="0"
+          @click="closing = true"
         >
-          <i class="icon-cross">X</i>
+          <Icon name="x" class="inline-block w-6 mr-1"/>
           {{ title }}
         </header>
-        <div ref="content" class="modal__content flex-1 px-8 pb-8 overflow-auto">
+        <div ref="content" class="Modal__content flex-1 px-8 pb-8 overflow-auto">
           <slot></slot>
         </div>
       </div>
@@ -20,10 +21,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref, watch } from 'vue'
 import gsap from 'gsap'
 
 export default defineComponent({
+  emits: ['closing', 'closed'],
   props: {
     title: {
       type: String,
@@ -31,7 +33,8 @@ export default defineComponent({
     }
   },
 
-  setup () {
+  setup (props, { emit }) {
+    const closing = ref(false)
     const mask = ref<HTMLElement>()
     const body = ref<HTMLElement>()
     const header = ref<HTMLElement>()
@@ -60,18 +63,36 @@ export default defineComponent({
       )
     })
 
+    watch(closing, () => {
+      console.log('im closing')
+      emit('closing')
+
+      tl.reverse()
+      tl.eventCallback('onReverseComplete', () => {
+        emit('closed')
+      })
+    })
+
     onUnmounted(() => tl.kill())
 
-    return { mask, body, header, content }
+    return { mask, body, header, content, closing }
   }
 })
 </script>
 
 <style scoped>
-.modal {
+.Modal {
   overflow: visible;
   transform: translateY(100%);
 }
 
-.modal__header, .modal__content { opacity: 0; }
+.Modal__header, .Modal__content { opacity: 0; }
+.Modal__header {
+  @apply flex items-center font-sans-serif font-semibold text-lg p-8;
+}
+
+.Modal__header:focus {
+  outline: 0;
+  text-decoration: underline;
+}
 </style>

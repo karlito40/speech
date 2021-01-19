@@ -8,7 +8,7 @@
     >
       <slot></slot>
     </div>
-    <div class="flex justify-center mt-8 mb-12 cursor-pointer">
+    <div class="flex justify-center mt-8 mb-12">
       <div 
         v-for="i in slideCount" 
         :key="i"
@@ -27,7 +27,7 @@ export const CarouselItem = defineComponent({
   render () {
     return h('div', {
       ...this.$attrs,
-      class: `carousel-item ${this.$attrs.class}` 
+      class: `CarouselItem ${this.$attrs.class}` 
     }, this.$slots?.default?.())
   }
 })
@@ -39,7 +39,7 @@ export default defineComponent({
     const slideCount = ref(0)
 
     const getSlideNodes = () => {
-      return scrollable.value ? Array.from(scrollable.value?.querySelectorAll('.carousel-item')) : []
+      return scrollable.value ? Array.from(scrollable.value?.querySelectorAll('.CarouselItem')) : []
     }
 
     const updateSlideCount = () => slideCount.value = getSlideNodes().length
@@ -74,7 +74,7 @@ export default defineComponent({
   display: none;
 }
 
-:deep(.carousel-item) {
+:deep(.CarouselItem) {
   scroll-snap-align: center;
   flex: 0 0 100%;
 }

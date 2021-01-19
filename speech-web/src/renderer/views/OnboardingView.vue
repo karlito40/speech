@@ -1,5 +1,5 @@
 <template>
-  <div class="OnboardingView fullscreen font-sans-serif">
+  <div class="OnboardingView fullscreen">
     <div class="font-logo font-bold text-4xl mb-6">Speech</div>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
@@ -36,44 +36,33 @@
       </CarouselItem>
     </Carousel>
     <div class="flex flex-col">
-      <button 
-        class="bg-gray-900 text-white font-bold rounded-lg p-2 mb-4"
+      <Button 
+        class="mb-4"
         @click="showModal = true"
       >
         Inscription
-      </button>
-      <button 
-        class="bg-gray-100 text-gray-900 font-bold rounded-lg p-2"
-        @click="addStuff = true"
-      >
+      </Button>
+      <Button type="secondary">
         Connexion
-      </button>
+      </Button>
     </div>
 
     <Modal 
       v-if="showModal" 
       title="Inscription"
-      @close="showModal = false"
+      @closed="showModal = false"
     >
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus qui corrupti error ullam excepturi alias ad natus pariatur voluptates, sapiente at cupiditate eaque accusamus aperiam, eum totam recusandae deleniti! Ipsum.</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
-      <p>Ipsum, inventore iusto non soluta delectus tempora quas nostrum, debitis voluptatem quo itaque labore obcaecati, modi asperiores vero accusamus suscipit omnis aliquid. Accusantium nostrum, blanditiis nisi accusamus eius voluptate? Voluptas?</p>
+      <SignUpView/>
     </Modal>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Modal from '../components/Modal.vue'
-import Carousel, { CarouselItem } from '../components/Carousel.vue'
+import SignUpView from './SignUpView.vue'
 
 export default defineComponent({
-  components: { Modal, Carousel, CarouselItem },
+  components: { SignUpView },
 
   data: () => ({
     showModal: false,

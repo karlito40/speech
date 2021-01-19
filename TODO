@@ -1,13 +1,16 @@
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
 
+Perf:
+  ☐ Supprimer les svg du build
+
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 
 
 Design System:
-  ☐ Button 
-  ☐ Icones
-  ☐ Modal
+  ✔ Button @done(21-01-19 14:56)
+  ✔ Icones @done(21-01-19 14:56)
+  ✔ Modal @done(21-01-19 14:56)
 
 Intégration:
   ✔ Landing @done(20-08-16 16:48)

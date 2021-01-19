@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from './renderer/views/LandingView.vue'
 import OfflineView from './renderer/views/OfflineView.vue'
 import OnboardingView from './renderer/views/OnboardingView.vue'
-import SignView from './renderer/views/SignView.vue'
+import SignUpView from './renderer/views/SignUpView.vue'
 
 const history = createWebHistory();
 
@@ -13,7 +13,7 @@ export const router = createRouter({
     { path: '/', component: LandingView },
     { path: '/onboarding', component: OnboardingView },
     { path: '/offline', component: OfflineView },
-    { path: '/sign', component: SignView },
+    { path: '/signup', component: SignUpView },
   ]
 })
 

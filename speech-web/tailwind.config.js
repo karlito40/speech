@@ -28,6 +28,9 @@ module.exports = {
           '300': "#dcdcdc",
           '100': "#F7F7F7",
         }
+      },
+      outline: {
+        black: '2px solid #232323',
       }
     },
   },
