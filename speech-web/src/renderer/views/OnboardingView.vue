@@ -1,35 +1,35 @@
 <template>
   <div class="OnboardingView fullscreen">
-    <div class="font-logo font-bold text-4xl mb-6">Speech</div>
+    <div class="font-logo font-bold text-5xl mb-6">Speech</div>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
         <img src="imgs/cartoon-go-muscu.jpg" alt="">
-        <div class="font-semibold mb-2">L'aventure commence</div>
-        <div class="leading-relaxed text-sm">
+        <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
+        <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-writer.jpg" alt="">
-        <div class="font-semibold mb-2">L'aventure commence</div>
-        <div class="leading-relaxed text-sm">
+        <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
+        <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-letter.jpg" alt="">
-        <div class="font-semibold mb-2">L'aventure commence</div>
-        <div class="leading-relaxed text-sm">
+        <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
+        <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
         <img src="imgs/cartoon-orange-match.jpg" alt="">
-        <div class="font-semibold mb-2">L'aventure commence</div>
-        <div class="leading-relaxed text-sm">
+        <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
+        <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
@@ -38,21 +38,31 @@
     <div class="flex flex-col">
       <Button 
         class="mb-4"
-        @click="showModal = true"
+        @click="showModal = 'signup'"
       >
         Inscription
       </Button>
-      <Button type="secondary">
+      <Button 
+        type="secondary"
+        @click="showModal = 'signin'"
+      >
         Connexion
       </Button>
     </div>
 
     <Modal 
-      v-if="showModal" 
+      v-if="showModal === 'signup'" 
       title="Inscription"
-      @closed="showModal = false"
+      @closed="showModal = null"
     >
       <SignUpView/>
+    </Modal>
+    <Modal 
+      v-else-if="showModal === 'signin'" 
+      title="Connexion"
+      @closed="showModal = null"
+    >
+      <SignInView/>
     </Modal>
   </div>
 </template>
@@ -60,12 +70,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import SignUpView from './SignUpView.vue'
+import SignInView from './SignInView.vue'
 
 export default defineComponent({
-  components: { SignUpView },
+  components: { SignUpView, SignInView },
 
   data: () => ({
-    showModal: false,
+    showModal: null
   })
 })
 </script>

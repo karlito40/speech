@@ -8,6 +8,15 @@ body {
   @apply font-sans-serif text-base;
 }
 
+.access-control:active/*, .access-control:focus*/  {
+  animation: 0.2s bounce ease;
+} 
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+} 
 
 @keyframes -slide-in-y { 
   from { 

@@ -1,10 +1,10 @@
 <template>
-  <div class="Input">
-    <div class="flex items-center relative bg-gray-100 rounded-lg">
+  <div class="Input font-serif">
+    <div class="Input__group flex items-center relative bg-gray-100 rounded-lg">
       <input 
         :type="type" 
         :placeholder="placeholder"
-        class="flex-1 px-4 py-2 pr-11 rounded-lg focus:outline-none focus:shadow"
+        class="Input__field flex-1 px-4 py-2 pr-11 rounded-lg"
       >
       <Icon 
         v-if="icon"
@@ -34,7 +34,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
-input {
+.Input__field {
+  @apply outline-none;
   background: transparent;
+  transition: 0.2s all;
+}
+
+.Input__group.error .Icon {
+  color: red;
 }
 </style>

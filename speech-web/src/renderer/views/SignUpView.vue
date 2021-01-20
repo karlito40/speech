@@ -1,6 +1,6 @@
 <template>
   <div class="SignUpView">
-    <h2 class="font-serif font-bold text-xl text-center mb-12 mt-8">L'aventure commence</h2>
+    <h2 class="font-serif font-bold text-2xl text-center mb-16 mt-20">L'aventure commence</h2>
 
     <form>
       <Input 
@@ -19,7 +19,7 @@
         icon="key"
       />
 
-      <Button class="w-full mt-6">Inscription</Button>
+      <Button class="w-full">Valider</Button>
     </form>
   </div>
 </template>

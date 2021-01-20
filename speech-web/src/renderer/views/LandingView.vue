@@ -1,8 +1,8 @@
 <template>
-  <div ref="root" class="LandingView text-lg">
+  <div ref="root" class="LandingView text-xl font-serif">
     <section class="fullscreen bg-gray-900 z-50" data-scene="intro">
       <header class="p-8">
-        <h1 class="text-4xl text-white uppercase">
+        <h1 class="text-5xl leading-snug text-white uppercase">
           L'amour<br>est il<br>aveugle ?
         </h1>
       </header>
@@ -20,7 +20,7 @@
       <p>les faux semblants...</p>
     </section>
     <section class="fullscreen z-10" data-scene="label">
-      <p>Soit toi même.</p>
+      <p>Soit toi.</p>
     </section>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <button
     :class="classesConfig"
-    class="font-sans-serif rounded-lg font-bold p-2 focus:outline-none focus:shadow-md"
+    class="font-sans-serif rounded-lg font-bold p-2 focus:outline-none access-control"
   >
     <slot></slot>
   </button>
@@ -11,7 +11,7 @@
 import { defineComponent, PropType } from "vue"
 
 const configs = {
-  primary: 'bg-gray-900 text-white focus:bg-gray-800',
+  primary: 'bg-gray-900 text-white',
   secondary: 'bg-gray-100 text-gray-900'
 };
 
@@ -32,3 +32,10 @@ export default defineComponent({
   }
 })
 </script>
+
+
+<style scoped>
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+</style>

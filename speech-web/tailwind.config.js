@@ -11,7 +11,7 @@ module.exports = {
         // headline3: "'PT Serif', serif",
         serif: "'PT Serif', serif"
       },
-      fontSize: {
+      /* fontSize: {
         'xs': '.75rem',
         'sm': '1rem',
         'base': '1.125rem',
@@ -21,7 +21,7 @@ module.exports = {
         '3xl': '2.25rem',
         '4xl': '3rem',
         '5xl': '4rem',
-      },
+      }, */
       colors: {
         gray: {
           '900': '#232323',

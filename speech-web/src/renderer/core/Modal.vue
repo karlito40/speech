@@ -5,11 +5,11 @@
       <div ref="body" class="Modal__body scene bg-white flex flex-col">
         <header
           ref="header" 
-          class="Modal__header"
+          class="Modal__header access-control"
           tabindex="0"
           @click="closing = true"
         >
-          <Icon name="x" class="inline-block w-6 mr-1"/>
+          <Icon name="x" class="inline-block w-6 mr-2"/>
           {{ title }}
         </header>
         <div ref="content" class="Modal__content flex-1 px-8 pb-8 overflow-auto">
@@ -64,7 +64,6 @@ export default defineComponent({
     })
 
     watch(closing, () => {
-      console.log('im closing')
       emit('closing')
 
       tl.reverse()
@@ -88,11 +87,7 @@ export default defineComponent({
 
 .Modal__header, .Modal__content { opacity: 0; }
 .Modal__header {
-  @apply flex items-center font-sans-serif font-semibold text-lg p-8;
-}
-
-.Modal__header:focus {
-  outline: 0;
-  text-decoration: underline;
+  @apply outline-none;
+  @apply flex items-center font-sans-serif font-semibold p-8 text-lg;
 }
 </style>
