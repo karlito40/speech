@@ -1,11 +1,17 @@
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
+  ☐ Revoir les textes
 
 Perf:
   ☐ Supprimer les svg du build
 
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 
+  ☐ Design focus state (disabled on mobile right now)
+  ☐ Revoir le focus/active du "X" en modal
+
+Refactor:
+  ☐ Rationnaliser les class et l'utilisation de tailwind (definir une convention)
 
 Design System:
   ✔ Button @done(21-01-19 14:56)
