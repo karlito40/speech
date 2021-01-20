@@ -3,7 +3,7 @@
     <div class="font-logo font-bold text-5xl mb-6">Speech</div>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
-        <img src="imgs/cartoon-go-muscu.jpg" alt="">
+        <img src="/imgs/cartoon-go-muscu.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
         <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
@@ -11,7 +11,7 @@
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
-        <img src="imgs/cartoon-orange-writer.jpg" alt="">
+        <img src="/imgs/cartoon-orange-writer.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
         <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
@@ -19,7 +19,7 @@
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
-        <img src="imgs/cartoon-orange-letter.jpg" alt="">
+        <img src="/imgs/cartoon-orange-letter.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
         <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 
@@ -27,7 +27,7 @@
         </div>
       </CarouselItem>
       <CarouselItem class="px-8">
-        <img src="imgs/cartoon-orange-match.jpg" alt="">
+        <img src="/imgs/cartoon-orange-match.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
         <div class="leading-relaxed">
           Oubliez les masques, les faux semblants et les préjugés. 

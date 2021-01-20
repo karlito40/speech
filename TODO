@@ -7,16 +7,11 @@ Perf:
 
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 
-  ☐ Design focus state (disabled on mobile right now)
-  ☐ Revoir le focus/active du "X" en modal
+  ☐ Designer un état de focus (quand on supportera les desktops...)
+  ☐ Revoir le focus/active du "X" dans les modals
 
 Refactor:
   ☐ Rationnaliser les class et l'utilisation de tailwind (definir une convention)
-
-Design System:
-  ✔ Button @done(21-01-19 14:56)
-  ✔ Icones @done(21-01-19 14:56)
-  ✔ Modal @done(21-01-19 14:56)
 
 Intégration:
   ✔ Landing @done(20-08-16 16:48)
@@ -39,3 +34,9 @@ Manifest:
 Animation:
 ✔ Transition entre splash et landing @done(20-08-16 16:46)
 ✔ Landing: "Ici pas de chichi. Oubliez les stéréotypes... les mensonges... le faux... Ton arme ? Ta prose. Toi." @done(20-08-16 16:46)
+  ☐ Augmenter la rapidité des modals
+
+Design System:
+  ✔ Button @done(21-01-19 14:56)
+  ✔ Icons @done(21-01-19 14:56)
+  ✔ Modal @done(21-01-19 14:56)
