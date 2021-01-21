@@ -3,14 +3,16 @@
     <div class="Modal fullscreen">
       <div ref="mask" class="Modal__mask scene bg-gray-900"></div>
       <div ref="body" class="Modal__body scene bg-white flex flex-col">
-        <header
-          ref="header" 
-          class="Modal__header access-control"
-          tabindex="0"
-          @click="closing = true"
-        >
-          <Icon name="x" class="inline-block w-6 mr-2"/>
-          {{ title }}
+        <header ref="header" class="Modal__header">
+          <span>{{ title }}</span>
+          <Button 
+            type="transparent"
+            class="absolute top-4 right-4"
+            tabindex="0"
+            @click="closing = true"
+          >
+            <Icon class="w-6" name="x"/>
+          </Button>
         </header>
         <div ref="content" class="Modal__content flex-1 px-8 pb-8 overflow-auto">
           <slot></slot>
@@ -22,9 +24,11 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted, ref, watch } from 'vue'
+import Button from './Button.vue'
 import gsap from 'gsap'
 
 export default defineComponent({
+  components: { Button },
   emits: ['closing', 'closed'],
   props: {
     title: {
@@ -87,7 +91,20 @@ export default defineComponent({
 
 .Modal__header, .Modal__content { opacity: 0; }
 .Modal__header {
-  @apply outline-none;
-  @apply flex items-center font-sans-serif font-semibold p-8 text-lg;
+  @apply 
+    flex 
+    items-center 
+    p-8
+    pt-16  
+    mb-14
+    text-center;
+}
+
+.Modal__header span {
+  @apply 
+    font-serif 
+    font-semibold 
+    text-4xl 
+    leading-tight;
 }
 </style>

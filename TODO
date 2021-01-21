@@ -1,6 +1,8 @@
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
   ☐ Revoir les textes
+  ☐ Page transition
+  ☐ Se decider sur les fonts (definir une convention sur les serifs)
 
 Perf:
   ☐ Supprimer les svg du build
@@ -12,8 +14,16 @@ Accessibilité:
 
 Refactor:
   ☐ Rationnaliser les class et l'utilisation de tailwind (definir une convention)
+  ☐ Nommer les routes
+  ☐ vite: creer un alias du root (=> eviter les chemins relatifs)
 
 Intégration:
+  ✔ Button @done(21-01-19 14:56)
+  ☐ Button: loading state
+  ✔ Icons @done(21-01-19 14:56)
+  ✔ Modal @done(21-01-19 14:56)
+  ✔ Input @done(21-01-21 15:07)
+  ☐ InputPassword (eye on/ eye off)
   ✔ Landing @done(20-08-16 16:48)
     ☐ Refactor 
   ☐ Onboarding @started(20-08-18 20:46)
@@ -21,12 +31,17 @@ Intégration:
     ✔ Placeholder image (empty block) while loading to prevent glitches @done(20-08-23 20:00)
     ✔ Carousel component @started(20-08-18 22:52) @done(20-08-23 20:00) @lasted(4d21h8m26s)
       ☐ Improve right swipe dot detection (its too much naive right now) 
-  ☐ SignIn
-  ☐ Signup
-  ☐ MessageList
+  ✔ SignInView @done(21-01-21 15:42)
+    ☐ "Se connecter avec"
+  ✔ SignupView @done(21-01-21 15:42)
+    ☐ "S'inscrire avec"
+  ☐ InboxView
   ☐ MessageRoom
   ☐ DailyProfil
   ☐ Settings
+  ☐ 404
+  ☐ /recovery: Account Recovery
+  ☐ Main frame: fixer le menu
 
 Manifest:
 ✔ Passer les icones en losange @done(20-07-14 18:43)
@@ -36,7 +51,3 @@ Animation:
 ✔ Landing: "Ici pas de chichi. Oubliez les stéréotypes... les mensonges... le faux... Ton arme ? Ta prose. Toi." @done(20-08-16 16:46)
   ☐ Augmenter la rapidité des modals
 
-Design System:
-  ✔ Button @done(21-01-19 14:56)
-  ✔ Icons @done(21-01-19 14:56)
-  ✔ Modal @done(21-01-19 14:56)

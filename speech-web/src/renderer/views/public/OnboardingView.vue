@@ -52,14 +52,14 @@
 
     <Modal 
       v-if="showModal === 'signup'" 
-      title="Inscription"
+      title="L'aventure commence"
       @closed="showModal = null"
     >
       <SignUpView/>
     </Modal>
     <Modal 
       v-else-if="showModal === 'signin'" 
-      title="Connexion"
+      title="L'aventure continue"
       @closed="showModal = null"
     >
       <SignInView/>

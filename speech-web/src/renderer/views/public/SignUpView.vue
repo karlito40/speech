@@ -1,7 +1,5 @@
 <template>
-  <div class="SignUpView">
-    <h2 class="font-serif font-bold text-2xl text-center mb-16 mt-20">L'aventure commence</h2>
-
+  <SignLayoutStyle class="SignUpView">
     <form @submit.prevent="submit">
       <Input 
         v-model="form.pseudo.$model"
@@ -29,21 +27,26 @@
         name="password"
         placeholder="Mot de passe"
         icon="key"
-        error-message="Ehh tu parts sans ta clé."
+        error-message="Ehh j'ai besoin d'un mot de passe."
       />
 
-      <Button class="w-full">Valider</Button>
+      <Button class="w-full">Inscription</Button>
     </form>
-  </div>
+  </SignLayoutStyle>
 </template>
 
 <script lang="ts">
-import { useVuelidate } from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
-import { ref } from "vue";
+import { useVuelidate } from "@vuelidate/core"
+import { required, email } from "@vuelidate/validators"
+import { defineComponent, ref } from "vue"
+import { useRouter } from "vue-router"
+import SignLayoutStyle from "./SignLayoutStyle.vue"
 
-export default {
+export default defineComponent({
+  components: { SignLayoutStyle },
   setup () {
+    const router = useRouter()
+
     const rules = {
       pseudo: { required },
       email: { email, required },
@@ -60,20 +63,18 @@ export default {
       form.value.$touch()
       console.log('submit !!!');
 
-      if (form.value.$error) {
+      // we don't care atm 
+      /* if (form.value.$error) {
         console.log('il reste des erreurs :(')
       } else {
         console.log("let's go")
-      }
+      } */
+
+      router.push({ name: 'inbox' });
     }
 
     return { form, submit }
   }
-}
+})
 </script>
 
-<style scoped>
-.Input {
-  @apply mb-6;
-}
-</style>

@@ -21,10 +21,11 @@ module.exports = {
         '3xl': '2.25rem',
         '4xl': '3rem',
         '5xl': '4rem',
-      }, */
+      },  */
       colors: {
         gray: {
           '900': '#232323',
+          '600': "#555555",
           '300': "#dcdcdc",
           '100': "#F7F7F7",
         }
@@ -37,6 +38,10 @@ module.exports = {
   variants: {},
   plugins: [
     plugin (function({ addComponents }) {
+      const apply = (rule) => ({
+        [`@apply ${rule}`]: {}
+      })
+
       addComponents({
         '.fullscreen': {
           // '@apply fixed h-screen w-screen': {},
@@ -53,7 +58,8 @@ module.exports = {
           right: 0,
           bottom: 0,
           left: 0
-        }
+        },
+        '.ellipsis': apply('whitespace-nowrap overflow-ellipsis overflow-hidden')
       })
     }),
   ],
