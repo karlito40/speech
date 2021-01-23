@@ -5,7 +5,7 @@
       <CarouselItem class="px-8">
         <img src="/imgs/cartoon-go-muscu.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
-        <div class="leading-relaxed">
+        <div>
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
@@ -13,7 +13,7 @@
       <CarouselItem class="px-8">
         <img src="/imgs/cartoon-orange-writer.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
-        <div class="leading-relaxed">
+        <div>
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
@@ -21,7 +21,7 @@
       <CarouselItem class="px-8">
         <img src="/imgs/cartoon-orange-letter.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
-        <div class="leading-relaxed">
+        <div>
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>
@@ -29,7 +29,7 @@
       <CarouselItem class="px-8">
         <img src="/imgs/cartoon-orange-match.jpg" alt="">
         <div class="font-semibold mb-2 text-lg">L'aventure commence</div>
-        <div class="leading-relaxed">
+        <div>
           Oubliez les masques, les faux semblants et les préjugés. 
           Votre arme pour séduire ? Vous.
         </div>

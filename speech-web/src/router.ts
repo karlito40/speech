@@ -6,6 +6,8 @@ import SignUpView from './renderer/views/public/SignUpView.vue'
 import SignInView from './renderer/views/public/SignInView.vue'
 import MainFrame from './renderer/views/private/MainFrame.vue'
 import InboxView from './renderer/views/private/InboxView.vue'
+import RoomView from './renderer/views/private/RoomView.vue'
+import DiscoverView from './renderer/views/private/DiscoverView.vue'
 
 const history = createWebHistory();
 
@@ -20,10 +22,12 @@ export const router = createRouter({
     { path: '/signin', name: 'signin', component: SignInView },
     {
       // todo: test if the user is connected before enter 
-      path: '/u',
+      path: '/s',
       component: MainFrame,
       children: [
-        { path: 'inbox', name: 'inbox', component: InboxView }
+        { path: 'discover', name: 'discover', component: DiscoverView },
+        { path: 'inbox', name: 'inbox', component: InboxView },
+        { path: 'room/:roomId', name: 'room', component: RoomView, props: true }
       ]
     }
   ]

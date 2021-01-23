@@ -1,3 +1,8 @@
+IMPORTANT:
+  ☐ accepter les mises en forme dans le chat (paragraphes, etc..) dans le chat
+  ☐ transformer l'input de chat en textarea expandable (cf fofo)
+  ☐ attacher le scroll du chat
+
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)
   ☐ Revoir les textes
@@ -16,6 +21,7 @@ Refactor:
   ☐ Rationnaliser les class et l'utilisation de tailwind (definir une convention)
   ☐ Nommer les routes
   ☐ vite: creer un alias du root (=> eviter les chemins relatifs)
+  ☐ changer l'arborescence
 
 Intégration:
   ✔ Button @done(21-01-19 14:56)
@@ -35,13 +41,15 @@ Intégration:
     ☐ "Se connecter avec"
   ✔ SignupView @done(21-01-21 15:42)
     ☐ "S'inscrire avec"
-  ☐ InboxView
+  ✔ InboxView @done(21-01-23 17:25)
+  ☐ InboxView: Notifications (pastille violette)
   ☐ MessageRoom
   ☐ DailyProfil
   ☐ Settings
   ☐ 404
   ☐ /recovery: Account Recovery
-  ☐ Main frame: fixer le menu
+  ✔ Main frame: fixer le menu @done(21-01-23 15:54)
+  ☐ Main frame: active link state
 
 Manifest:
 ✔ Passer les icones en losange @done(20-07-14 18:43)

@@ -1,27 +1,27 @@
 <template>
-  <div class="MainFrame py-5 px-6">
-    <nav class="top-bar -mx-2 text-gray-900 mb-12">
+  <div class="MainFrame py-20 px-6">
+    <nav class="top-bar px-4 py-2">
       <ul class="flex items-center">
         <li>
-          <Button type="transparent">
+          <Button type="icon">
             <Icon name="arrowLeft" class="w-7"/>
           </Button>
         </li>
         <li class="flex-1"></li>
         <li>
-          <Button type="transparent">
-            <Icon name="home" class="w-7"/>
-          </Button>
+          <router-link :to="{ name: 'discover' }" class="nav-link">
+            <Icon name="newspaper" class="w-7"/>
+          </router-link>
         </li>
         <li>
-          <Button type="transparent" >
+          <router-link :to="{ name: 'inbox' }" class="nav-link" >
             <Icon name="annotation" class="w-7"/>
-          </Button>
+          </router-link>
         </li>
         <li>
-          <Button type="transparent">
+          <router-link to="/" class="nav-link">
             <Avatar src="https://placekitten.com/28/28"/>
-          </Button>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -30,12 +30,15 @@
 </template>
 
 <style scoped>
-li {
-  @apply mr-2;
+.top-bar {
+  @apply bg-white text-gray-900;
+  @apply fixed top-0 left-0 w-full;
 }
 
+li { @apply mr-2; }
 li:last-child { margin-right: 0 !important; }
-/* .Icon :deep(path) {
-  stroke-width: 1;
-}  */
+
+.nav-link {
+  @apply block border-0 p-2;
+}
 </style>

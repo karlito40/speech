@@ -6,6 +6,7 @@
 
 body {
   @apply font-sans-serif text-base;
+  @apply leading-relaxed;
 }
 
 .access-control:active/*, .access-control:focus*/  {

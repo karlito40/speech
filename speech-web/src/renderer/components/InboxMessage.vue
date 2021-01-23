@@ -2,14 +2,14 @@
   <div class="MessageItem flex items-center">
     <div class="flex-shrink-0 mr-8">
       <img 
-        :src="message.user.avatarUrl" 
+        :src="message.author.avatarUrl" 
         class="object-cover h-8 w-8"
       >
     </div>
 
     <div class="flex-1 overflow-hidden ">
       <div class="font-bold text-lg font-serif">
-        {{ message.user.pseudo }}
+        {{ message.author.pseudo }}
       </div>
       <div class="ellipsis text-sm">
         {{ message.content }}
@@ -29,7 +29,9 @@ type User = {
 }
 
 type Message = {
-  user: User;
+  id: string;
+  roomId: string;
+  author: User;
   content: string;
 }
 

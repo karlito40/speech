@@ -6,7 +6,7 @@
         <header ref="header" class="Modal__header">
           <span>{{ title }}</span>
           <Button 
-            type="transparent"
+            type="icon"
             class="absolute top-4 right-4"
             tabindex="0"
             @click="closing = true"
