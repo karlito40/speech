@@ -1,6 +1,6 @@
 <template>
   <div class="OnboardingView fullscreen">
-    <div class="font-logo font-bold text-5xl mb-6">Speech</div>
+    <h1 class="font-logo font-bold text-5xl mb-6">Speech</h1>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
         <img src="/imgs/cartoon-go-muscu.jpg" alt="">
@@ -83,9 +83,13 @@ export default defineComponent({
 
 <style scoped>
 .OnboardingView {
-  @apply flex flex-col text-center justify-center px-8 py-4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   opacity: 0;
   animation: 0.8s -slide-in-y 0.2s forwards;
+  @apply px-8 py-4;
 }
 
 img {

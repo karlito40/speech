@@ -80,14 +80,18 @@ export default defineComponent({
 }
 
 [data-scene="label"] {
-  @apply flex items-center justify-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0; /* prevent glitches */
 }
 
 [data-scene="intro"] header { min-height: 60vh; }
 [data-scene="intro"] .content {
-  @apply text-right px-8 pb-8 bg-white;
+  @apply  bg-white;
+  @apply px-8 pb-8;
   padding-top: 25vh;
   height: 40vh;
+  text-align: right;
 }
 </style>

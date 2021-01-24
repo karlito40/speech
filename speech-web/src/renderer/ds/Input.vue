@@ -2,13 +2,13 @@
   <div class="Input font-serif">
     <div
       :class="{ error: hasError }" 
-      class="Input__group flex items-center relative bg-gray-100 rounded-lg"
+      class="input-group"
     >
       <input
         :type="type" 
         :placeholder="placeholder"
         :value="modelValue"
-        class="Input__field flex-1 px-4 py-2 pr-11 rounded-lg"
+        class="input-group__field"
         @input="$emit('update:modelValue', $event.target.value)"
         @blur="$emit('blur', $event.target.value)"
       >
@@ -45,17 +45,30 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.Input__field {
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  @apply bg-gray-100;
+  @apply rounded-lg;
+}
+
+.input-group__field {
+  flex: 1;
   @apply outline-none;
+  @apply px-4 py-2 pr-11;
+  @apply rounded-lg;
   background: transparent;
   transition: 0.2s all;
 }
 
-.Input__group.error .Icon {
+
+.input-group.error .Icon {
   color: red;
 }
 
 .Input__explain {
-  @apply text-sm pl-2 mt-2;
+  @apply text-sm;
+  @apply pl-2 mt-2;
 }
 </style>

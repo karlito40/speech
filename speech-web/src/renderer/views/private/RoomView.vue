@@ -90,7 +90,8 @@ export default defineComponent({
 
 <style scoped>
 .chat {
-   @apply flex flex-col;
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
@@ -99,22 +100,24 @@ export default defineComponent({
   max-width: 80%;
 }
 
+.message[data-from="me"] { align-self: flex-end; }
+
 .message__content {
   @apply mb-1;
 }
 
 .message__footer {
-  @apply text-gray-600;
-  @apply text-sm;
+  @apply text-sm text-gray-600;
 }
 
-.message[data-from="me"] { @apply self-end; }
 .message[data-from="me"] .message__footer { text-align: right; }
 
-
 .message-form {
-  @apply fixed bottom-0 left-0 right-0;
-  @apply flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
   @apply py-4 px-6;
   @apply bg-white;
 }

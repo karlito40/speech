@@ -1,6 +1,6 @@
 <template>
   <div class="MainFrame py-20 px-6">
-    <nav class="top-bar px-4 py-2">
+    <nav class="top-bar">
       <ul class="flex items-center">
         <li>
           <Button type="icon">
@@ -31,14 +31,20 @@
 
 <style scoped>
 .top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   @apply bg-white text-gray-900;
-  @apply fixed top-0 left-0 w-full;
+  @apply px-4 py-2;
 }
 
 li { @apply mr-2; }
 li:last-child { margin-right: 0 !important; }
 
 .nav-link {
-  @apply block border-0 p-2;
+  display: block;
+  border: 0;
+  @apply p-2;
 }
 </style>

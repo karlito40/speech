@@ -2,9 +2,11 @@
   <Teleport to="#modal-cluster">
     <div class="Modal fullscreen">
       <div ref="mask" class="Modal__mask scene bg-gray-900"></div>
-      <div ref="body" class="Modal__body scene bg-white flex flex-col">
+      <div ref="body" class="Modal__body scene bg-white">
         <header ref="header" class="Modal__header">
-          <span>{{ title }}</span>
+          <span class="font-serif font-semibold text-4xl leading-tight">
+            {{ title }}
+          </span>
           <Button 
             type="icon"
             class="absolute top-4 right-4"
@@ -14,7 +16,11 @@
             <Icon class="w-6" name="x"/>
           </Button>
         </header>
-        <div ref="content" class="Modal__content flex-1 px-8 pb-8 overflow-auto">
+        <div 
+          ref="content" 
+          class="px-8 pb-8 overflow-auto" 
+          data-man="Modal__content"
+        >
           <slot></slot>
         </div>
       </div>
@@ -91,20 +97,10 @@ export default defineComponent({
 
 .Modal__header, .Modal__content { opacity: 0; }
 .Modal__header {
-  @apply 
-    flex 
-    items-center 
-    p-8
-    pt-16  
-    mb-14
-    text-center;
-}
-
-.Modal__header span {
-  @apply 
-    font-serif 
-    font-semibold 
-    text-4xl 
-    leading-tight;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  @apply p-8 pt-16;
+  @apply mb-14;
 }
 </style>

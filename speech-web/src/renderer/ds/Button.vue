@@ -1,7 +1,7 @@
 <template>
   <button
     :class="classesConfig"
-    class="font-sans-serif rounded-lg font-bold p-2 focus:outline-none access-control"
+    class="Button"
   >
     <slot></slot>
   </button>
@@ -37,7 +37,12 @@ export default defineComponent({
 
 
 <style scoped>
-button {
-  -webkit-tap-highlight-color: transparent;
+.Button {
+  @apply access-control;
+  @apply font-sans-serif font-bold;
+  @apply rounded-lg;
+  @apply p-2;
 }
+
+.Button:focus { @apply outline-none; }
 </style>

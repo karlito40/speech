@@ -63,7 +63,13 @@ module.exports = {
           bottom: 0,
           left: 0
         },
-        '.ellipsis': apply('whitespace-nowrap overflow-ellipsis overflow-hidden')
+        '.ellipsis': apply('whitespace-nowrap overflow-ellipsis overflow-hidden'),
+        '.access-control': {
+          '-webkit-tap-highlight-color': 'transparent',
+          '&:active': {
+            animation: '0.2s bounce ease'
+          }
+        }
       })
     }),
   ],

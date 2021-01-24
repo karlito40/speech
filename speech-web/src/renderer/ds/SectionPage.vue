@@ -1,6 +1,9 @@
 <template>
   <section class="SectionPage">
-    <div class="flex items-center mb-10">
+    <div 
+      class="flex items-center mb-10"
+      data-man="SectionPage__header"
+    >
       <slot name="header:prepend"/>
       <h1
         :class="{ 'ml-5' : $slots['header:prepend'] }" 
@@ -11,7 +14,7 @@
       <div v-if="$slots['header:append']" class="flex-1"></div>
       <slot name="header:append"/>
     </div>
-    <div class="SectionPage__content">
+    <div data-man="SectionPage__content">
       <slot/>
     </div>
   </section>
