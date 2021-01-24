@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingView from './renderer/views/public/LandingView.vue'
-import OfflineView from './renderer/views/public/OfflineView.vue'
-import OnboardingView from './renderer/views/public/OnboardingView.vue'
-import SignUpView from './renderer/views/public/SignUpView.vue'
-import SignInView from './renderer/views/public/SignInView.vue'
-import MainFrame from './renderer/views/private/MainFrame.vue'
-import InboxView from './renderer/views/private/InboxView.vue'
-import RoomView from './renderer/views/private/RoomView.vue'
-import DiscoverView from './renderer/views/private/DiscoverView.vue'
+import LandingView from './renderer/scenes/public/LandingView.vue'
+import OfflineView from './renderer/scenes/public/OfflineView.vue'
+import OnboardingView from './renderer/scenes/public/OnboardingView.vue'
+import SignUpView from './renderer/scenes/public/SignUpView.vue'
+import SignInView from './renderer/scenes/public/SignInView.vue'
+import NavView from './renderer/scenes/protected/NavView.vue'
+import InboxView from './renderer/scenes/protected/Inbox/InboxView.vue'
+import RoomView from './renderer/scenes/protected/RoomView.vue'
+import DiscoverView from './renderer/scenes/protected/DiscoverView.vue'
 
 const history = createWebHistory();
 
@@ -23,7 +23,7 @@ export const router = createRouter({
     {
       // todo: test if the user is connected before enter 
       path: '/s',
-      component: MainFrame,
+      component: NavView,
       children: [
         { path: 'discover', name: 'discover', component: DiscoverView },
         { path: 'inbox', name: 'inbox', component: InboxView },
