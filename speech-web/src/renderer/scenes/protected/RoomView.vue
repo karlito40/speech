@@ -28,7 +28,7 @@
         Je tombe le masque
       </Button>
 
-      <form class="message-form" @submit.prevent="">
+      <form class="overlapse-bottom-form" @submit.prevent="">
         <Input 
           type="text" 
           name="content" 
@@ -111,14 +111,4 @@ export default defineComponent({
 }
 
 .message[data-from="me"] .message__footer { text-align: right; }
-
-.message-form {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  @apply py-4 px-6;
-  @apply bg-white;
-}
 </style>

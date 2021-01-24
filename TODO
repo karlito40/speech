@@ -21,7 +21,7 @@ Refactor:
   ☐ Rationnaliser les class et l'utilisation de tailwind (definir une convention)
   ☐ Nommer les routes
   ☐ vite: creer un alias du root (=> eviter les chemins relatifs)
-  ☐ changer l'arborescence
+  ✔ changer l'arborescence @done(21-01-24 17:58)
 
 Intégration:
   ✔ Button @done(21-01-19 14:56)

@@ -1,5 +1,5 @@
 <template>
-  <div class="MainFrame py-20 px-6">
+  <div class="NavView py-20 px-6">
     <nav class="top-bar">
       <ul class="flex items-center">
         <li>

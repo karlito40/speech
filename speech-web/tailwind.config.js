@@ -69,6 +69,15 @@ module.exports = {
           '&:active': {
             animation: '0.2s bounce ease'
           }
+        },
+        '.overlapse-bottom-form': {
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          display: 'flex',
+          'box-shadow': '0 4px 25px 10px white',
+          ...apply('bg-white py-4 px-6')
         }
       })
     }),

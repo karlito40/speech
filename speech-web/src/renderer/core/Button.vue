@@ -14,8 +14,8 @@ const configs = {
   primary: 'bg-gray-900 text-white',
   secondary: 'bg-gray-100 text-gray-900',
   subtle: 'bg-pink-100 text-pink-900',
-  icon: 'bg-transparent'
-};
+  icon: 'bg-transparent',
+}
 
 type ButtonType = keyof typeof configs;
 
