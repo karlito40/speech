@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vuedx-typecheck . && vite build"
+    "build": "vuedx-typecheck . && vite build",
+    "deploy": "cd firebase-project && firebase deploy --only hosting && rm -rf dist"
   },
   "dependencies": {
     "@vuelidate/core": "^2.0.0-alpha.8",
     "@vuelidate/validators": "^2.0.0-alpha.5",
+    "firebase": "^8.2.5",
     "gsap": "^3.6.0",
     "lodash-es": "^4.17.20",
     "vue": "^3.0.5",
