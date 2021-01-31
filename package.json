@@ -1,7 +1,7 @@
 {
   "name": "speech",
   "version": "0.0.1",
-  "description": "WIP: This project is currently in a mockup/experimental state.",
+  "description": "WIP: Projet est en phase experimentale.",
   "main": "index.js",
   "scripts": {
     "dev": "cd speech-web && npm run dev",
