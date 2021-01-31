@@ -2,6 +2,18 @@ IMPORTANT:
   ☐ accepter les mises en forme dans le chat (paragraphes, etc..) dans le chat
   ☐ transformer l'input de chat en textarea expandable (cf fofo)
   ☐ attacher le scroll du chat
+  ☐ gérer les erreurs (network, etc..)
+  ☐ add a logger
+  ☐ provide dataLayer (plugin)
+  ☐ definir une convention pour les variables reactives (prefix ?)
+  ☐ attendre l'authStateChanged avant d'acceder aux routes securisés (private + AuthActionView) + injection
+  ☐ todo: dataLayer + me injection
+  ☐ move AuthActionView somewhere else
+  USER SIGNUP - TO FINISH:
+    ☐ auth -> create real user + credential binding
+
+INVESTIGATE:
+  ☐ Lors de l'ouverture d'une modal:Extraneous non-props attributes (class) were passed to component but could not be automatically inherited because component renders fragment or text root nodes. 
 
 Design:
   ✔ Revoir le placement et le design des liens connexions/inscriptions @done(20-08-18 22:47)

@@ -40,6 +40,7 @@ import { useVuelidate } from "@vuelidate/core"
 import { required, email } from "@vuelidate/validators"
 import { defineComponent, ref } from "vue"
 import { useRouter } from "vue-router"
+import * as Firebase from "../../../app-data/firebase"
 import SignLayoutStyle from "./SignLayoutStyle.vue"
 
 export default defineComponent({
@@ -59,18 +60,22 @@ export default defineComponent({
       password: ref('')
     })
 
-    const submit = () => {
+    const submit = async () => {
       form.value.$touch()
-      console.log('submit !!!');
 
       // we don't care atm 
-      /* if (form.value.$error) {
+      if (form.value.$error) {
         console.log('il reste des erreurs :(')
       } else {
         console.log("let's go")
-      } */
-
-      router.push({ name: 'inbox' });
+ 
+        await Firebase.signUp({
+          email: form.value.email.$model,
+          password: form.value.password.$model,
+        });
+        
+        router.push({ name: 'inbox' });
+      } 
     }
 
     return { form, submit }

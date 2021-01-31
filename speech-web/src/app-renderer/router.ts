@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingView from './renderer/scenes/public/LandingView.vue'
-import OfflineView from './renderer/scenes/public/OfflineView.vue'
-import OnboardingView from './renderer/scenes/public/OnboardingView.vue'
-import SignUpView from './renderer/scenes/public/SignUpView.vue'
-import SignInView from './renderer/scenes/public/SignInView.vue'
-import NavView from './renderer/scenes/protected/NavView.vue'
-import InboxView from './renderer/scenes/protected/Inbox/InboxView.vue'
-import RoomView from './renderer/scenes/protected/RoomView.vue'
-import DiscoverView from './renderer/scenes/protected/DiscoverView.vue'
+import LandingView from './scenes/public/LandingView.vue'
+import OfflineView from './scenes/public/OfflineView.vue'
+import OnboardingView from './scenes/public/OnboardingView.vue'
+import SignUpView from './scenes/public/SignUpView.vue'
+import SignInView from './scenes/public/SignInView.vue'
+import NavView from './scenes/protected/NavView.vue'
+import InboxView from './scenes/protected/Inbox/InboxView.vue'
+import RoomView from './scenes/protected/RoomView.vue'
+import DiscoverView from './scenes/protected/DiscoverView.vue'
+import AuthActionView from './scenes/callbacks/AuthActionView.vue'
 
 const history = createWebHistory();
 
@@ -20,6 +21,12 @@ export const router = createRouter({
     { path: '/onboarding', name: 'onboarding', component: OnboardingView },
     { path: '/signup', name: 'signup', component: SignUpView },
     { path: '/signin', name: 'signin', component: SignInView },
+    // __reserved firebase auth routes__
+    {
+      path: '/__/auth/action',
+      component: AuthActionView
+    },
+    // __protected routes__
     {
       // todo: test if the user is connected before enter 
       path: '/s',
