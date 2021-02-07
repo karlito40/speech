@@ -1,5 +1,5 @@
 <template>
-  <div class="OnboardingView fullscreen">
+  <div class="ViewOnboarding fullscreen">
     <h1 class="font-logo font-bold text-5xl mb-6">Speech</h1>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
@@ -55,25 +55,28 @@
       title="L'aventure commence"
       @closed="showModal = null"
     >
-      <SignUpView/>
+      <ViewSignUp/>
     </Modal>
     <Modal 
       v-else-if="showModal === 'signin'" 
       title="L'aventure continue"
       @closed="showModal = null"
     >
-      <SignInView/>
+      <ViewSignIn/>
     </Modal>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import SignUpView from './SignUpView.vue'
-import SignInView from './SignInView.vue'
+// This import will be forbidden in the future
+// we should not import another context from a context !
+// (Sign pages will be render by vue-router (soon...))
+import ViewSignUp from '../ctx.auth/ViewSignUp.vue'
+import ViewSignIn from '../ctx.auth/ViewSignIn.vue'
 
 export default defineComponent({
-  components: { SignUpView, SignInView },
+  components: { ViewSignUp, ViewSignIn },
 
   data: () => ({
     showModal: null
@@ -82,7 +85,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.OnboardingView {
+.ViewOnboarding {
   display: flex;
   flex-direction: column;
   justify-content: center;

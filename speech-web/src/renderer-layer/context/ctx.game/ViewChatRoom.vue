@@ -1,5 +1,5 @@
 <template>
-  <SectionPage :title="pretender.pseudo" class="RoomView">
+  <SectionPage :title="pretender.pseudo" class="ViewChatRoom">
     <template #header:prepend>
       <Avatar :src="pretender.avatarUrl"/>
     </template>

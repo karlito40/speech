@@ -1,15 +1,15 @@
 <template>
-  <div class="DiscoverView">
+  <div class="ViewDiscoverProfile">
     <Spinner v-if="loading"/>
     <SectionPage
       v-else 
       :title="letter.author.pseudo" 
-      class="DiscoverView"
+      class="ViewDiscoverProfile"
     >
-      <div class="mb-6" data-man="DiscoverView__content">
+      <div class="mb-6" data-man="ViewDiscoverProfile__content">
         {{ letter.content }}
       </div>
-      <div class="text-sm text-gray-600 text-right italic" data-man="DiscoverView__footer">
+      <div class="text-sm text-gray-600 text-right italic" data-man="ViewDiscoverProfile__footer">
         <p>{{ letter.author.pseudo }}, 99 ans</p>
         <p>{{ letter.author.city }}</p>
       </div>

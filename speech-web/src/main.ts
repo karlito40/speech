@@ -1,5 +1,5 @@
-import startDataLayer from './app-data/main'
-import startRendererLayer from './app-renderer/main'
+import startDataLayer from './data-layer/main'
+import startRendererLayer from './renderer-layer/main'
 
 startRendererLayer({
   dataLayer: startDataLayer()

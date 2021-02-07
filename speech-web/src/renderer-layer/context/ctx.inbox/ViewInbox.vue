@@ -6,17 +6,17 @@
       :to="{ name: 'room', params: { roomId: message.roomId } }"
       class="block border-0"
     >
-      <InboxMessage :message="message" class="mb-6" />
+      <MessageInbox :message="message" class="mb-6" />
     </router-link>
   </SectionPage>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import InboxMessage from './components/InboxMessage.vue'
+import MessageInbox from './MessageInbox.vue'
 
 export default defineComponent({
-  components: { InboxMessage },
+  components: { MessageInbox },
   
   setup () {
     const messages = Array.from({ length: 12 }, (k, v) => ({

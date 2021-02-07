@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { defineComponent, onUnmounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import $dataLayer from 'firebase/app'
-import * as Firebase from '../../../app-data/firebase'
-
+// todo: forbidden those import
+// (import directly another layer should not be a thing)
+import * as Firebase from '../../../data-layer/firebase'
 
 export default defineComponent({
   setup () {
