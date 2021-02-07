@@ -4,11 +4,13 @@ IMPORTANT:
   ☐ attacher le scroll du chat
   ☐ gérer les erreurs (network, etc..)
   ☐ add a logger
-  ☐ provide dataLayer (plugin)
+  ✔ provide dataLayer (plugin) @done(21-02-07 18:46)
   ☐ definir une convention pour les variables reactives (prefix ?)
   ☐ attendre l'authStateChanged avant d'acceder aux routes securisés (private + AuthActionView) + injection
   ☐ todo: dataLayer + me injection
-  ☐ move AuthActionView somewhere else
+  ☐ Move ViewSignUp and ViewSignIn from ViewOnboarding. They must be called by vue-router
+  ✔ move AuthActionView somewhere else @done(21-02-07 18:45)
+
   USER SIGNUP - TO FINISH:
     ☐ auth -> create real user + credential binding
 
@@ -21,8 +23,9 @@ Design:
   ☐ Page transition
   ☐ Se decider sur les fonts (definir une convention sur les serifs)
 
-Perf:
-  ☐ Supprimer les svg du build
+Convention:
+  ☐ Create a eslint-rule to disable import from different layer and different context
+  ✔ Definir une regle d'organisation @done(21-02-07 18:47)
 
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 

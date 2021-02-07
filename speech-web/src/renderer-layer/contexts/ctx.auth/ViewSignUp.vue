@@ -38,14 +38,15 @@
 <script lang="ts">
 import { useVuelidate } from "@vuelidate/core"
 import { required, email } from "@vuelidate/validators"
-import { defineComponent, ref } from "vue"
+import { defineComponent, inject, ref } from "vue"
 import { useRouter } from "vue-router"
-import * as Firebase from "../../../data-layer/firebase"
+import { DATA_LAYER } from "../../__di__"
 import LayoutSignStyle from "./LayoutSignStyle.vue"
 
 export default defineComponent({
   components: { LayoutSignStyle },
   setup () {
+    const { auth } = inject(DATA_LAYER)
     const router = useRouter()
 
     const rules = {
@@ -69,7 +70,7 @@ export default defineComponent({
       } else {
         console.log("let's go")
  
-        await Firebase.signUp({
+        await auth.signUp({
           email: form.value.email.$model,
           password: form.value.password.$model,
         });

@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onUnmounted, reactive, ref } from 'vue'
+import { defineComponent, inject, onUnmounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { DATA_LAYER } from '../../__di__'
 // todo: forbidden those import
 // (import directly another layer should not be a thing)
-import * as Firebase from '../../../data-layer/firebase'
-
 export default defineComponent({
   setup () {
+    const { auth } = inject(DATA_LAYER)
     const router = useRouter()
     const route = useRoute()
 
@@ -42,7 +42,7 @@ export default defineComponent({
 
         onUnmounted(() => clearTimeout(timeout.value))
       
-        Firebase.verifyEmail(route.query.oobCode)
+        auth.verifyEmail(route.query.oobCode)
             .then(onVerifiedEmail)
             .catch(onError)
 
