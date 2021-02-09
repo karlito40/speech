@@ -2,7 +2,7 @@ import { Ref } from "vue"
 import Firebase from "firebase/app";
 import "firebase/auth";
 
-export type AuthStore = {
+export type AuthService = {
   isAuthenticated: Ref<boolean>;
   authenticate(): void;
   // We should not rely on firebase on a "real world" scenario
@@ -11,5 +11,5 @@ export type AuthStore = {
 }
 
 export type DataLayer = {
-  auth: AuthStore;
+  auth: AuthService;
 }
