@@ -7,12 +7,13 @@
 <script lang="ts">
 import { defineComponent, inject, onUnmounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useDataLayer } from '../../app.hooks'
 import { DATA_LAYER } from '../../__di__'
 // todo: forbidden those import
 // (import directly another layer should not be a thing)
 export default defineComponent({
   setup () {
-    const { auth } = inject(DATA_LAYER)
+    const auth = useDataLayer('auth')
     const router = useRouter()
     const route = useRoute()
 

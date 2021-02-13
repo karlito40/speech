@@ -1,5 +1,5 @@
 import './app.assets/styles/theme.css'
-import { createApp, defineComponent, h, provide, watch } from 'vue'
+import { createApp } from 'vue'
 // import { gsap, TextPlugin } from 'gsap/all'
 import { router } from './router'
 import App from './App.vue'
@@ -11,9 +11,6 @@ import { DATA_LAYER } from './__di__'
 export default function (
   { dataLayer }: { dataLayer: DataLayer }
 ) {
-  // todo: find a better way (rename, move it ?) 
-  dataLayer.auth.authenticate()
- 
   const app = createApp(App)
   app.provide(DATA_LAYER, dataLayer)
   app.use(router)

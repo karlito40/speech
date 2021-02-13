@@ -53,6 +53,7 @@ function animateLabels (tl: gsap.core.Timeline, $scenes: Element[]) {
 
 export default defineComponent({
   setup () {
+    console.log('landing view')
     const router = useRouter()
     const root = ref<HTMLElement>()
     const tl = gsap.timeline()
