@@ -1,16 +1,29 @@
-import { ComputedRef, Ref } from "vue"
+import { ComputedRef, Ref, ToRefs } from "vue"
 import Firebase from "firebase/app";
 import "firebase/auth";
 
-type ReactiveUser = Ref<Firebase.User | null | undefined>
-export type AuthService = {
-  user: ReactiveUser;
-  isAuthenticated: ComputedRef<boolean>;
+export type AuthServiceState = {
+  user: Firebase.User | null | undefined;
+}
 
-  authenticate(): { user: ReactiveUser; loading: Ref<boolean>; isAuthenticated: ComputedRef<boolean>; };
+export type AuthServiceGetters = {
+  isAuthenticated: ComputedRef<boolean>;
+}
+
+export type AuthServiceActions = {
+  authenticate(): { 
+    user: Ref<AuthServiceState['user']>, 
+    loading: Ref<boolean>; 
+    isAuthenticated: ComputedRef<boolean> 
+  };
   signUp({ email, password }: { email: string, password: string }): Promise<Firebase.auth.UserCredential>;
   verifyEmail(actionCode: string): void;
 }
+
+export type AuthService = 
+  ToRefs<AuthServiceState> 
+  & AuthServiceGetters
+  & AuthServiceActions
 
 export type DataLayer = {
   auth: AuthService;

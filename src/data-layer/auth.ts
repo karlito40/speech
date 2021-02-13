@@ -1,14 +1,23 @@
 import Firebase from "firebase/app";
-import { computed, ref } from "vue";
-import { AuthService } from "../shared/DataLayer";
+import { computed, reactive, ref, toRef, toRefs } from "vue";
+import { AuthService, AuthServiceGetters, AuthServiceState } from "../shared/DataLayer";
+
+interface State {
+  user: Firebase.User | null | undefined;
+}
 
 export default (firebase: Firebase.app.App): AuthService => {
-  const user = ref<Firebase.User | null | undefined>(undefined)
-  const isAuthenticated = computed(() => Boolean(user.value))
+  const state = reactive<AuthServiceState>({
+    user: undefined
+  })
 
+  const getters: AuthServiceGetters = {
+    isAuthenticated: computed(() => Boolean(state.user))
+  }
+  
   return {
-    user,
-    isAuthenticated,
+    ...toRefs(state),
+    ...getters,
 
     authenticate () {
       const loading = ref(true)
@@ -17,15 +26,19 @@ export default (firebase: Firebase.app.App): AuthService => {
       // Future authenticate call will rely on the first one as the data
       // are reactive
       // But anyway we should not call this method more than once (but well we all make mistake)
-      if (user.value === undefined) {
-        user.value = null
+      if (state.user === undefined) {
+        state.user = null
         firebase.auth().onAuthStateChanged((firebaseUser) => {
-          user.value = firebaseUser
+          state.user = firebaseUser
           loading.value = false
         })
       }
 
-      return { user, loading, isAuthenticated }
+      return { 
+        user: toRef(state, 'user'), 
+        isAuthenticated: getters.isAuthenticated, 
+        loading
+      }
     },
 
     async signUp ({ email, password }: { email: string, password: string }) {
