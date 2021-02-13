@@ -11,6 +11,12 @@ import ViewDiscoverProfile from './contexts/ctx.game/ViewDiscoverProfile.vue'
 import ViewFirebaseAuthCallback from './contexts/ctx.auth/ViewFirebaseAuthCallback.vue'
 import ViewAutoRedirectAccess from './contexts/ViewAutoRedirectAccess.vue'
 
+declare module 'vue-router' {
+  interface RouteMeta {
+    autoRedirectAccess?: 'goto_signin_if_not_authenticated' | 'goto_inbox_if_authenticated'
+  }
+}
+
 const history = createWebHistory()
 
 const restrictedRoutes = {
