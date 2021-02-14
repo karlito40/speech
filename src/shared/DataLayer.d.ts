@@ -2,8 +2,9 @@ import { ComputedRef, Ref, ToRefs } from "vue"
 import Firebase from "firebase/app";
 import "firebase/auth";
 
+// ------ Auth Service ------------------- //
 export type AuthServiceState = {
-  user: Firebase.User | null | undefined;
+  me: Firebase.User | null | undefined;
 }
 
 export type AuthServiceGetters = {
@@ -12,7 +13,7 @@ export type AuthServiceGetters = {
 
 export type AuthServiceActions = {
   authenticate(): { 
-    user: Ref<AuthServiceState['user']>, 
+    me: Ref<AuthServiceState['me']>, 
     loading: Ref<boolean>; 
     isAuthenticated: ComputedRef<boolean> 
   };
@@ -25,6 +26,33 @@ export type AuthService =
   & AuthServiceGetters
   & AuthServiceActions
 
+
+
+// ------ Room Service ------------------- //
+export type Message = {
+  authorId: string;
+  author?: any; // TODO: TS | Create a User type
+  content: string;
+}
+
+export type Room = {
+  userIds: string[];
+  messages: Message[];
+  createdAt: string; // TODO: TS | Convert into a Date
+}
+
+export type RoomService = {
+  enterIn ({ roomId }: { roomId: string; }): ToRefs<{ 
+    loading: boolean; 
+    error: Error | null;
+    data: Room | null;
+  }>;
+  // subscribeToChat ({ roomId }: { roomId: string; }): Message[];
+  addMessage ({ roomId, content }: { roomId: string; content: string; authorId: string; }): void;
+}
+
+// ------ Layer export ------------------- //
 export type DataLayer = {
   auth: AuthService;
+  room: RoomService;
 }

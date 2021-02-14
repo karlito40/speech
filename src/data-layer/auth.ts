@@ -1,18 +1,15 @@
-import Firebase from "firebase/app";
 import { computed, reactive, ref, toRef, toRefs } from "vue";
 import { AuthService, AuthServiceGetters, AuthServiceState } from "../shared/DataLayer";
+import { InternalLayerDeps } from "./__types";
 
-interface State {
-  user: Firebase.User | null | undefined;
-}
-
-export default (firebase: Firebase.app.App): AuthService => {
+export default ({ firebase }: InternalLayerDeps): AuthService => {
   const state = reactive<AuthServiceState>({
-    user: undefined
+    // TODO: Archi | Remove from auth. They are not the same and create a users collection
+    me: undefined
   })
 
   const getters: AuthServiceGetters = {
-    isAuthenticated: computed(() => Boolean(state.user))
+    isAuthenticated: computed(() => Boolean(state.me))
   }
   
   return {
@@ -26,16 +23,16 @@ export default (firebase: Firebase.app.App): AuthService => {
       // Future authenticate call will rely on the first one as the data
       // are reactive
       // But anyway we should not call this method more than once (but well we all make mistake)
-      if (state.user === undefined) {
-        state.user = null
-        firebase.auth().onAuthStateChanged((firebaseUser) => {
-          state.user = firebaseUser
+      if (state.me === undefined) {
+        state.me = null
+        firebase.auth().onAuthStateChanged((user) => {
+          state.me = user
           loading.value = false
         })
       }
 
       return { 
-        user: toRef(state, 'user'), 
+        me: toRef(state, 'me'), 
         isAuthenticated: getters.isAuthenticated, 
         loading
       }

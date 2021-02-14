@@ -20,7 +20,6 @@ declare module 'vue-router' {
 const history = createWebHistory()
 
 const restrictedRoutes = {
-  // todo: test if the user is connected before enter 
   path: '/s',
   component: ViewTopNav,
   meta: { autoRedirectAccess: 'goto_signin_if_not_authenticated' },

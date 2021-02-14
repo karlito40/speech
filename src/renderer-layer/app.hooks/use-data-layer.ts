@@ -1,8 +1,14 @@
 import { inject } from "vue";
-import { DataLayer } from "../../shared/DataLayer";
+import { DataLayer, RoomService } from "../../shared/DataLayer";
 import { DATA_LAYER } from "../__di__";
 
-export default function (targetedService: keyof DataLayer) {
+// TODO: TS | Fine a way to type that things
+export default function useDataLayer (targetedService: keyof DataLayer) {
   const dataLayer = inject(DATA_LAYER) as DataLayer
-  return dataLayer[targetedService]
+  return targetedService ? dataLayer[targetedService] : dataLayer
 }
+
+// just because typescript is not able to understand dataLayer[targetedService] ...
+// export function useRoomService (): RoomService {
+//   return useDataLayer('room') as RoomService
+// }

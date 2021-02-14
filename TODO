@@ -1,4 +1,13 @@
+HMMMM:
+  ☐ typescript keep getting in my way to do some cool stuff... generic reducer are a pain in the ass to do 
+  ☐ vue "value" are not really cool to look at (make some ugly ass code)
+
+
+INVESTIGATION:
+  ☐ how the fuck can i make the type works on toSuffixRefs so i will be able to use a reactive(state) instead of plenty ref
+
 IMPORTANT:
+  ☐ create users collection and remove me.value.uid ("me" should not be in auth)
   ☐ accepter les mises en forme dans le chat (paragraphes, etc..) dans le chat
   ☐ transformer l'input de chat en textarea expandable (cf fofo)
   ☐ attacher le scroll du chat
@@ -10,6 +19,10 @@ IMPORTANT:
   ☐ todo: dataLayer + me injection
   ☐ Move ViewSignUp and ViewSignIn from ViewOnboarding. They must be called by vue-router
   ✔ move AuthActionView somewhere else @done(21-02-07 18:45)
+  ☐ configure firestore (rules, permissions, indexes....)
+  ☐ "fixer" le useDataLayer. Il doit retourner un type qui correspond au targetedService plutot qu'un ensemble (permettra d'eviter le useXXXService)
+  ☐ la chatbox doit etre fixed 
+  ☐ le scroll du chat doit etre sticky au bas du chat :/
 
   USER SIGNUP - TO FINISH:
     ☐ auth -> create real user + credential binding
@@ -26,6 +39,7 @@ Design:
 Convention:
   ☐ Create a eslint-rule to disable import from different layer and different context
   ✔ Definir une regle d'organisation @done(21-02-07 18:47)
+  ☐ reactive objet: mySuperVarφ | ref var: mySuperVar$ (but i cant make it to works without too much code.... )
 
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 
