@@ -7,6 +7,7 @@ INVESTIGATION:
   ☐ how the fuck can i make the type works on toSuffixRefs so i will be able to use a reactive(state) instead of plenty ref
 
 IMPORTANT:
+  ☐ unsubscribe to realtime + keep trace of realtime in hooks (realtime should be destroy when no components listen to it)
   ☐ create users collection and remove me.value.uid ("me" should not be in auth)
   ☐ accepter les mises en forme dans le chat (paragraphes, etc..) dans le chat
   ☐ transformer l'input de chat en textarea expandable (cf fofo)
