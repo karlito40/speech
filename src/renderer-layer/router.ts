@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ViewLanding from './contexts/ctx.landing/ViewLanding.vue'
-import ViewOffline from './contexts/ViewOffline.vue'
-import ViewOnboarding from './contexts/ctx.landing/ViewOnboarding.vue'
-import ViewSignUp from './contexts/ctx.auth/ViewSignUp.vue'
-import ViewSignIn from './contexts/ctx.auth/ViewSignIn.vue'
-import ViewTopNav from './contexts/ViewTopNav.vue'
-import InboxView from './contexts/ctx.inbox/VieWInbox.vue'
-import ViewChatRoom from './contexts/ctx.game/ViewChatRoom.vue'
-import ViewDiscoverProfile from './contexts/ctx.game/ViewDiscoverProfile.vue'
-import ViewFirebaseAuthCallback from './contexts/ctx.auth/ViewFirebaseAuthCallback.vue'
-import ViewAutoRedirectAccess from './contexts/ViewAutoRedirectAccess.vue'
+import Landing from './pages/Landing.vue'
+import Offline from './pages/Offline.vue'
+import Onboarding from './pages/Onboarding.vue'
+import SignUp from './pages/SignUp.vue'
+import SignIn from './pages/SignIn.vue'
+import RestrictedRoot from './pages/restricted/__Root__.vue'
+import Inbox from './pages/restricted/Inbox.vue'
+import Room from './pages/restricted/Room.vue'
+import Discover from './pages/restricted/Discover.vue'
+import ViewAutoRedirectAccess from './contexts/ViewAutoRedirectAccess.vue' // TODO: remove
+import FirebaseActionCallback from './pages/callbacks/FirebaseActionCallback.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -21,12 +21,12 @@ const history = createWebHistory()
 
 const restrictedRoutes = {
   path: '/s',
-  component: ViewTopNav,
+  component: RestrictedRoot,
   meta: { autoRedirectAccess: 'goto_signin_if_not_authenticated' },
   children: [
-    { path: 'discover', name: 'discover', component: ViewDiscoverProfile },
-    { path: 'inbox', name: 'inbox', component: InboxView },
-    { path: 'room/:roomId', name: 'room', component: ViewChatRoom, props: true }
+    { path: 'discover', name: 'discover', component: Discover },
+    { path: 'inbox', name: 'inbox', component: Inbox },
+    { path: 'room/:roomId', name: 'room', component: Room, props: true }
   ]
 }
 
@@ -41,19 +41,19 @@ export const router = createRouter({
       component: ViewAutoRedirectAccess,
       meta: { autoRedirectAccess: 'goto_inbox_if_authenticated' },
       children: [
-        { path: '', name:'landing', component: ViewLanding },    
-        { path: 'onboarding', name: 'onboarding', component: ViewOnboarding },
-        { path: 'signup', name: 'signup', component: ViewSignUp },
-        { path: 'signin', name: 'signin', component: ViewSignIn },
+        { path: '', name: 'landing', component: Landing },    
+        { path: 'onboarding', name: 'onboarding', component: Onboarding },
+        { path: 'signup', name: 'signup', component: SignUp },
+        { path: 'signin', name: 'signin', component: SignIn },
         restrictedRoutes
       ]
     },
     // __reserved firebase auth routes__
     {
       path: '/__/auth/action',
-      component: ViewFirebaseAuthCallback
+      component: FirebaseActionCallback
     },
-    { path: '/offline', component: ViewOffline }
+    { path: '/offline', component: Offline }
   ]
 })
 

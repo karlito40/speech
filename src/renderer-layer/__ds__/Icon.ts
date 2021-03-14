@@ -1,5 +1,5 @@
 import { defineComponent, h, PropType } from "vue";
-import * as icons from '../app.assets/heroicons';
+import * as icons from '../assets/heroicons';
 
 export type IconName = keyof typeof icons;
 

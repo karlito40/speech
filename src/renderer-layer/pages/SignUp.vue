@@ -1,5 +1,5 @@
 <template>
-  <LayoutSignStyle class="ViewSignUp">
+  <LayoutSignStyle class="SignUp">
     <form @submit.prevent="submit">
       <Input 
         v-model="form.pseudo.$model"
@@ -40,8 +40,8 @@ import { useVuelidate } from "@vuelidate/core"
 import { required, email } from "@vuelidate/validators"
 import { defineComponent, ref } from "vue"
 import { useRouter } from "vue-router"
-import { useDataLayer } from "../../app.hooks"
-import LayoutSignStyle from "./LayoutSignStyle.vue"
+import { useDataLayer } from "../hooks"
+import LayoutSignStyle from "../contexts/auth/LayoutSignStyle.vue"
 
 export default defineComponent({
   components: { LayoutSignStyle },

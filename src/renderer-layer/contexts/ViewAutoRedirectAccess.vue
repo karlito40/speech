@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useDataLayer } from '../app.hooks'
+import { useDataLayer } from '../hooks'
 
 export default defineComponent({
   setup () {

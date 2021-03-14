@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" class="ViewLanding text-xl font-serif">
+  <div ref="root" class="Landing text-xl font-serif">
     <section class="fullscreen bg-gray-900 z-50" data-scene="intro">
       <header class="p-8">
         <h1 class="text-5xl leading-snug text-white uppercase">

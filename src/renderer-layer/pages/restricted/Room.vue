@@ -51,7 +51,7 @@
 <script lang="ts">
 import useVuelidate from '@vuelidate/core';
 import { computed, defineComponent, reactive, ref } from 'vue'
-import useDataLayer from '../../app.hooks/use-data-layer';
+import useDataLayer from '../../hooks/use-data-layer';
 import { required } from "@vuelidate/validators"
 
 export default defineComponent({

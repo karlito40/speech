@@ -1,5 +1,5 @@
 <template>
-  <div class="ViewOnboarding fullscreen">
+  <div class="Onboarding fullscreen">
     <h1 class="font-logo font-bold text-5xl mb-6">Speech</h1>
     <Carousel class="-mx-8">
       <CarouselItem class="px-8">
@@ -72,8 +72,8 @@ import { defineComponent } from 'vue'
 // This import will be forbidden in the future
 // we should not import another context from a context !
 // (Sign pages will be render by vue-router (soon...))
-import ViewSignUp from '../ctx.auth/ViewSignUp.vue'
-import ViewSignIn from '../ctx.auth/ViewSignIn.vue'
+import ViewSignUp from './SignUp.vue'
+import ViewSignIn from './SignIn.vue'
 
 export default defineComponent({
   components: { ViewSignUp, ViewSignIn },

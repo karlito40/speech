@@ -1,5 +1,5 @@
 <template>
-  <LayoutSignStyle class="ViewSignIn">
+  <LayoutSignStyle class="SignIn">
     <form @submit.prevent="submit">
       <Input 
         v-model="form.email.$model"
@@ -31,7 +31,7 @@
 import { useVuelidate } from "@vuelidate/core"
 import { required, email } from "@vuelidate/validators"
 import { defineComponent, ref } from "vue"
-import LayoutSignStyle from './LayoutSignStyle.vue'
+import LayoutSignStyle from '../contexts/auth/LayoutSignStyle.vue'
 
 export default defineComponent({
   components: { LayoutSignStyle },

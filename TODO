@@ -2,9 +2,12 @@ HMMMM:
   ☐ typescript keep getting in my way to do some cool stuff... generic reducer are a pain in the ass to do 
   ☐ vue "value" are not really cool to look at (make some ugly ass code)
 
-
 INVESTIGATION:
   ☐ how the fuck can i make the type works on toSuffixRefs so i will be able to use a reactive(state) instead of plenty ref
+
+VERY IMPORTANT (eheh):
+  ☐ Gérer les restrictions de route et la transmission des données depuis logic-layer/controllers (remove legacy ViewAutoRedirectAccess)
+  ☐ Ajouter xstate (logic-layers/machines)
 
 IMPORTANT:
   ☐ unsubscribe to realtime + keep trace of realtime in hooks (realtime should be destroy when no components listen to it)
