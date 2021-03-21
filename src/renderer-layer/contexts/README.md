@@ -1,1 +1,0 @@
-Files at the root of this directory belong to the "app" context.

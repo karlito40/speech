@@ -1,6 +1,6 @@
 import Firebase from "firebase/app";
 import { reactive, ref, toRefs } from "vue";
-import { Message$, Room, RoomService } from "../shared/DataLayer"
+import { Room, RoomService } from "../shared/DataLayer"
 import rand from "../shared/rand";
 import { InternalLayerDeps } from "./__types"
 
@@ -24,7 +24,7 @@ export default ({ db }: InternalLayerDeps): RoomService => {
   })()
 
   return {
-    enterIn ({ roomId }: { roomId: string; }) {
+    watchRoom ({ roomId }: { roomId: string; }) {
       // todo: initialize data with cache (keep messages subscriptions) 
       const query = reactive<{
         loading: boolean;

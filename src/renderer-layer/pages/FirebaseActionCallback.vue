@@ -7,11 +7,11 @@
 <script lang="ts">
 import { defineComponent, onUnmounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useDataLayer } from '../../hooks'
+import { useDataLayer } from '../hooks'
 
 export default defineComponent({
   setup () {
-    const auth = useDataLayer('auth')
+    const { Auth } = useDataLayer()
     const router = useRouter()
     const route = useRoute()
 
@@ -41,7 +41,7 @@ export default defineComponent({
 
         onUnmounted(() => clearTimeout(timeout.value))
       
-        auth.verifyEmail(route.query.oobCode)
+        Auth.verifyEmail(route.query.oobCode)
             .then(onVerifiedEmail)
             .catch(onError)
 

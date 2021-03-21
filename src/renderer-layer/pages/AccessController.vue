@@ -13,11 +13,11 @@ import { useDataLayer } from '../hooks'
 
 export default defineComponent({
   setup () {
-    const auth = useDataLayer('auth')
+    const { Auth } = useDataLayer()
     const router = useRouter()
     const route = useRoute()
 
-    const { isAuthenticated, loading } = auth.authenticate()
+    const { isAuthenticated, loading } = Auth.authenticate()
 
     if (!route.meta.autoRedirectAccess) {
       console.warn(`There is no need for you to use ViewAutoRedirectAcces for that route:`, route.fullPath)

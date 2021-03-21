@@ -1,15 +1,6 @@
 <template>
-  <LayoutSignStyle class="SignUp">
+  <SignLayout class="SignIn">
     <form @submit.prevent="submit">
-      <Input 
-        v-model="form.pseudo.$model"
-        :has-error="form.pseudo.$error"
-        type="text" 
-        name="pseudo"
-        placeholder="Alter ego"
-        icon="fingerprint"
-        error-message="Un héro ne part jamais sans son masque."
-      />
       <Input 
         v-model="form.email.$model"
         :has-error="form.email.$error"
@@ -19,7 +10,6 @@
         icon="mail"
         error-message="Ehh cet email semble erroné."
       />
-
       <Input 
         v-model="form.password.$model"
         :has-error="form.password.$error"
@@ -29,54 +19,42 @@
         icon="key"
         error-message="Ehh j'ai besoin d'un mot de passe."
       />
-
-      <Button class="w-full">Inscription</Button>
+      <Button class="w-full">Connexion</Button>
     </form>
-  </LayoutSignStyle>
+    <div class="text-center text-sm">
+      <router-link to="/recovery">Mot de passe oubliée ?</router-link>
+    </div>
+  </SignLayout>
 </template>
 
 <script lang="ts">
 import { useVuelidate } from "@vuelidate/core"
 import { required, email } from "@vuelidate/validators"
 import { defineComponent, ref } from "vue"
-import { useRouter } from "vue-router"
-import { useDataLayer } from "../hooks"
-import LayoutSignStyle from "../contexts/auth/LayoutSignStyle.vue"
+import SignLayout from './components/SignLayout.vue'
 
 export default defineComponent({
-  components: { LayoutSignStyle },
+  components: { SignLayout },
   setup () {
-    const auth = useDataLayer('auth')
-    const router = useRouter()
-
     const rules = {
-      pseudo: { required },
       email: { email, required },
       password: { required }
     }
 
     const form = useVuelidate(rules, {
-      pseudo: ref(''),
       email: ref(''),
       password: ref('')
     })
 
-    const submit = async () => {
+    const submit = () => {
       form.value.$touch()
+      console.log('submit !!!');
 
-      // we don't care atm 
       if (form.value.$error) {
-        // TODO: Form | handle that error
-        return console.log('todo: il reste des erreurs :(')
-      } 
-        
-      console.log("let's go")
-      await auth.signUp({
-        email: form.value.email.$model,
-        password: form.value.password.$model,
-      });
-      
-      router.push({ name: 'inbox' });
+        console.log('il reste des erreurs :(')
+      } else {
+        console.log("let's go")
+      }
     }
 
     return { form, submit }

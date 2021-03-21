@@ -2,14 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Landing from './pages/Landing.vue'
 import Offline from './pages/Offline.vue'
 import Onboarding from './pages/Onboarding.vue'
-import SignUp from './pages/SignUp.vue'
-import SignIn from './pages/SignIn.vue'
+import SignUp from './pages/sign/SignUp.vue'
+import SignIn from './pages/sign/SignIn.vue'
 import RestrictedRoot from './pages/restricted/__Root__.vue'
-import Inbox from './pages/restricted/Inbox.vue'
+import Inbox from './pages/restricted/inbox/Inbox.vue'
 import Room from './pages/restricted/Room.vue'
 import Discover from './pages/restricted/Discover.vue'
-import ViewAutoRedirectAccess from './contexts/ViewAutoRedirectAccess.vue' // TODO: remove
-import FirebaseActionCallback from './pages/callbacks/FirebaseActionCallback.vue'
+import AccessController from './pages/AccessController.vue' // TODO: remove
+import FirebaseActionCallback from './pages/FirebaseActionCallback.vue'
+import TestController from '../logic-layer/test-controller'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -38,7 +39,8 @@ export const router = createRouter({
       path: '/', 
       // just because i don't like the vue-router hooks options 
       // (no flexibility: cannot be anim, nightmare to maintain, etc..)
-      component: ViewAutoRedirectAccess,
+      component: AccessController,
+      name: 'AccessController',
       meta: { autoRedirectAccess: 'goto_inbox_if_authenticated' },
       children: [
         { path: '', name: 'landing', component: Landing },    
@@ -51,9 +53,22 @@ export const router = createRouter({
     // __reserved firebase auth routes__
     {
       path: '/__/auth/action',
+      name: 'firebaseActionCallback',
       component: FirebaseActionCallback
     },
-    { path: '/offline', component: Offline }
+    { 
+      path: '/offline',
+      name: 'offline',
+      component: Offline 
+    },
+    { 
+      ...TestController.route,
+      props: true,
+      component: async () => {
+        const controller = new TestController()
+        return controller.action(router.currentRoute.value.params)
+      },
+    }
   ]
 })
 

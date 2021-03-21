@@ -42,7 +42,7 @@ export type Room = {
 }
 
 export type RoomService = {
-  enterIn ({ roomId }: { roomId: string; }): ToRefs<{ 
+  watchRoom ({ roomId }: { roomId: string; }): ToRefs<{ 
     loading: boolean; 
     error: Error | null;
     data: Room | null;
@@ -53,6 +53,6 @@ export type RoomService = {
 
 // ------ Layer export ------------------- //
 export type DataLayer = {
-  auth: AuthService;
-  room: RoomService;
+  Auth: AuthService;
+  Room: RoomService;
 }

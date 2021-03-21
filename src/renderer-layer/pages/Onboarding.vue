@@ -55,28 +55,26 @@
       title="L'aventure commence"
       @closed="showModal = null"
     >
-      <ViewSignUp/>
+      <Signup/>
     </Modal>
     <Modal 
       v-else-if="showModal === 'signin'" 
       title="L'aventure continue"
       @closed="showModal = null"
     >
-      <ViewSignIn/>
+      <SignUp/>
     </Modal>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-// This import will be forbidden in the future
-// we should not import another context from a context !
-// (Sign pages will be render by vue-router (soon...))
-import ViewSignUp from './SignUp.vue'
-import ViewSignIn from './SignIn.vue'
+// TODO:  This should not be there. We should use a router-view
+import Signup from './sign/SignUp.vue'
+import SignUp from './sign/SignIn.vue'
 
 export default defineComponent({
-  components: { ViewSignUp, ViewSignIn },
+  components: { Signup, SignUp },
 
   data: () => ({
     showModal: null

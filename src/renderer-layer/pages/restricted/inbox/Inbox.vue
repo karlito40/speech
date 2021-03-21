@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import InboxMessage from '../../contexts/inbox/InboxMessage.vue'
+import InboxMessage from './components/InboxMessage.vue'
 
 export default defineComponent({
   components: { InboxMessage },

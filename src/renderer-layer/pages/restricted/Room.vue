@@ -63,33 +63,8 @@ export default defineComponent({
   },
   setup () {
     // TODO: TS | "fix" the useDataLayer to return the correct type (it returns a conditional type atm)
-    const { me } = useDataLayer('auth')
-    const roomService = useDataLayer('room')
-
-    // on recuperera seulement les messages recents
-    // (les plus anciens seront recupérés au scroll si besoin)
-    const messages = reactive([
-      {
-        id: '1',
-        content: `L'amour est il aveugle ? J'en sais rien. L'amour rend t’il aveugle ? Si c'est le cas j’aimerais bien le devenir pour ne plus avoir à supporter vos messages à longueur de journées.\n\n Oh regardez moi, un cerveau de la capacité d’une planète et on me demande de vous guider vers la page de profile. L'épanouissement professionnel, tu parles.`,
-        createdAt: new Date(),
-        authorId: '77'
-      },
-      {
-        id: '2',
-        content: `Go fuck yourself, fucking bot. Go fuck yourself, fucking botGo fuck yourself, fucking botGo fuck yourself, fucking bot`,
-        createdAt: new Date(),
-        authorId: '1c'
-      }, 
-      {
-        id: '3',
-        content: `oh dear :(`,
-        createdAt: new Date(),
-        authorId: '77'
-      }
-    ]);
-    
-    
+    const { Auth, Room } = useDataLayer()
+    const { me } = Auth;
 
     const pretender = {
       id: '77',
@@ -114,14 +89,14 @@ export default defineComponent({
       console.log("let's go")
 
       // TODO: TS | useDataLayer is not able to infer the type of the targetd service
-      roomService.addMessage({
+      Room.addMessage({
         roomId: 'myTestId',
         authorId: me.value.uid,
         content: form.value.content.$model,
       })
     }
 
-    const { loading, result, error } = roomService.enterIn({ roomId: 'myTestId' })
+    const { loading, result, error } = Room.watchRoom({ roomId: 'myTestId' })
 
     const formatedMessages = computed(() => {
       if (!result.value) return null
@@ -160,6 +135,7 @@ export default defineComponent({
 
 .message__content p {
   @apply mb-5;
+  overflow-wrap: anywhere;
 }
 
 .message__content p:last-child {

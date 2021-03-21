@@ -2,7 +2,7 @@ import './assets/styles/theme.css'
 import { createApp } from 'vue'
 // import { gsap, TextPlugin } from 'gsap/all'
 import { router } from './router'
-import AppRoot from './pages/__Root__.vue'
+import App from './App.vue'
 import * as globalComponents from './global-registry'
 import { DataLayer } from '../shared/DataLayer.d'
 import { DATA_LAYER } from './__di__'
@@ -11,7 +11,7 @@ import { DATA_LAYER } from './__di__'
 export default function (
   { dataLayer }: { dataLayer: DataLayer }
 ) {
-  const app = createApp(AppRoot)
+  const app = createApp(App)
   app.provide(DATA_LAYER, dataLayer)
   app.use(router)
 
