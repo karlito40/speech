@@ -1,1 +1,1 @@
-export const DATA_LAYER = Symbol()
+export const LOGIC_LAYER = Symbol()

@@ -9,15 +9,18 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.0-alpha.8",
     "@vuelidate/validators": "^2.0.0-alpha.5",
+    "@xstate/inspect": "^0.4.1",
     "@xstate/vue": "^0.5.0",
     "firebase": "^8.2.5",
     "gsap": "^3.6.0",
     "lodash-es": "^4.17.20",
+    "rxjs": "^6.6.6",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
     "xstate": "^4.17.0"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.4",
     "@vitejs/plugin-vue": "^1.0.4",
     "@vue/compiler-sfc": "^3.0.5",
     "@vuedx/typecheck": "^0.4.1",

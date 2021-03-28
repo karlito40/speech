@@ -70,8 +70,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 // TODO:  This should not be there. We should use a router-view
-import Signup from './sign/SignUp.vue'
-import SignUp from './sign/SignIn.vue'
+import Signup from './SignUp.vue'
+import SignUp from './SignIn.vue'
 
 export default defineComponent({
   components: { Signup, SignUp },

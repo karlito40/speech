@@ -4,6 +4,6 @@ export { default as Modal } from './__ds__/Modal.vue'
 export { default as Input } from './__ds__/Input.vue'
 export { default as Icon } from './__ds__/Icon'
 export { default as Avatar } from './__ds__/Avatar.vue'
-export { default as SectionPage } from './contexts/SectionPage.vue'
+export { default as SectionPage } from './components/SectionPage.vue'
 export { default as Spinner } from './__ds__/Spinner.vue'
 

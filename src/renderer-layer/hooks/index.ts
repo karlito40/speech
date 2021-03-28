@@ -1,1 +1,1 @@
-export { default as useDataLayer } from './use-data-layer'
+export { default as useLogicLayer } from './use-logic-layer'

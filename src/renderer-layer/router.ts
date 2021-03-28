@@ -1,16 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Landing from './pages/Landing.vue'
-import Offline from './pages/Offline.vue'
+import Offline from './pages/__/Offline.vue'
 import Onboarding from './pages/Onboarding.vue'
-import SignUp from './pages/sign/SignUp.vue'
-import SignIn from './pages/sign/SignIn.vue'
-import RestrictedRoot from './pages/restricted/__Root__.vue'
-import Inbox from './pages/restricted/inbox/Inbox.vue'
-import Room from './pages/restricted/Room.vue'
-import Discover from './pages/restricted/Discover.vue'
-import AccessController from './pages/AccessController.vue' // TODO: remove
-import FirebaseActionCallback from './pages/FirebaseActionCallback.vue'
-import TestController from '../logic-layer/test-controller'
+import SignUp from './pages/SignUp.vue'
+import SignIn from './pages/SignIn.vue'
+import __RestrictedRoot from './pages/s/__Index.vue'
+import Inbox from './pages/s/Inbox/Inbox.vue'
+import Room from './pages/s/Room.vue'
+import Discover from './pages/s/Discover.vue'
+import __Authentication__ from './pages/__Authentication__.vue' // TODO: remove
+import AuthCallback from './pages/__/AuthCallback.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -22,12 +21,13 @@ const history = createWebHistory()
 
 const restrictedRoutes = {
   path: '/s',
-  component: RestrictedRoot,
+  name: 'restricted',
+  component: __RestrictedRoot,
   meta: { autoRedirectAccess: 'goto_signin_if_not_authenticated' },
   children: [
     { path: 'discover', name: 'discover', component: Discover },
     { path: 'inbox', name: 'inbox', component: Inbox },
-    { path: 'room/:roomId', name: 'room', component: Room, props: true }
+    { path: 'rooms/:roomId', name: 'room', component: Room, props: true }
   ]
 }
 
@@ -35,12 +35,9 @@ export const router = createRouter({
   history,
   strict: true,
   routes: [
-    { 
+    {
       path: '/', 
-      // just because i don't like the vue-router hooks options 
-      // (no flexibility: cannot be anim, nightmare to maintain, etc..)
-      component: AccessController,
-      name: 'AccessController',
+      component: __Authentication__,
       meta: { autoRedirectAccess: 'goto_inbox_if_authenticated' },
       children: [
         { path: '', name: 'landing', component: Landing },    
@@ -53,14 +50,15 @@ export const router = createRouter({
     // __reserved firebase auth routes__
     {
       path: '/__/auth/action',
-      name: 'firebaseActionCallback',
-      component: FirebaseActionCallback
+      name: 'authCallback',
+      component: AuthCallback
     },
     { 
-      path: '/offline',
+      path: '/__/offline',
       name: 'offline',
       component: Offline 
     },
+    /*
     { 
       ...TestController.route,
       props: true,
@@ -68,7 +66,7 @@ export const router = createRouter({
         const controller = new TestController()
         return controller.action(router.currentRoute.value.params)
       },
-    }
+    }*/
   ]
 })
 

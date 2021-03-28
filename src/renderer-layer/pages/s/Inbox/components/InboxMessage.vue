@@ -21,19 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-
-type User = {
-  id: string;
-  pseudo: string;
-  avatarUrl: string;
-}
-
-type Message = {
-  id: string;
-  roomId: string;
-  author: User;
-  content: string;
-}
+import { Message } from '../../../../../data-layer/types'
 
 export default defineComponent({
   props: {

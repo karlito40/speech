@@ -1,0 +1,23 @@
+// todo: generate tests
+// todo: generate provide in root component
+
+global guard is_offline goto offline
+
+guard is_authenticated else goto signin
+  /s >> s/Root
+    /discover ("discover") >> s/Discover 
+    /inbox ("inbox") >> s/Inbox/Inbox << InboxPage
+    /rooms/:roomId ("room") >> s/Room
+    /tests ("tests")
+    guards some_guard
+      /:testId ("test")
+
+guard is_not_authenticated else goto inbox
+  / >> AccessController
+    . ("landing") >> Landing
+    /signup ("signup") >> SignUp
+    /signin ("signin") >> SignIn
+
+
+/__/offline ("offline") >> Offline
+/__/action >> AuthCallback

@@ -1,32 +1,26 @@
 HMMMM:
-  ☐ typescript keep getting in my way to do some cool stuff... generic reducer are a pain in the ass to do 
-  ☐ vue "value" are not really cool to look at (make some ugly ass code)
 
 INVESTIGATION:
-  ☐ how the fuck can i make the type works on toSuffixRefs so i will be able to use a reactive(state) instead of plenty ref
 
 VERY IMPORTANT (eheh):
   ☐ Gérer les restrictions de route et la transmission des données depuis logic-layer/controllers (remove legacy ViewAutoRedirectAccess)
   ☐ Ajouter xstate (logic-layers/machines)
 
 IMPORTANT:
-  ☐ unsubscribe to realtime + keep trace of realtime in hooks (realtime should be destroy when no components listen to it)
+  ☐ generate code and tests from app.skeleton
+  ☐ add rxjs inspect
+  ☐ add some xstate utility
   ☐ create users collection and remove me.value.uid ("me" should not be in auth)
   ☐ accepter les mises en forme dans le chat (paragraphes, etc..) dans le chat
   ☐ transformer l'input de chat en textarea expandable (cf fofo)
   ☐ attacher le scroll du chat
-  ☐ gérer les erreurs (network, etc..)
+  ☐ gérer les erreurs (network, etc..) #us-bbo
   ☐ add a logger
   ✔ provide dataLayer (plugin) @done(21-02-07 18:46)
-  ☐ definir une convention pour les variables reactives (prefix ?)
-  ☐ attendre l'authStateChanged avant d'acceder aux routes securisés (private + AuthActionView) + injection
   ☐ todo: dataLayer + me injection
-  ☐ Move ViewSignUp and ViewSignIn from ViewOnboarding. They must be called by vue-router
+  ☐ Move SignUp and SignIn from ViewOnboarding. They must be called by the vue-router
   ✔ move AuthActionView somewhere else @done(21-02-07 18:45)
   ☐ configure firestore (rules, permissions, indexes....)
-  ☐ "fixer" le useDataLayer. Il doit retourner un type qui correspond au targetedService plutot qu'un ensemble (permettra d'eviter le useXXXService)
-  ☐ la chatbox doit etre fixed 
-  ☐ le scroll du chat doit etre sticky au bas du chat :/
 
   USER SIGNUP - TO FINISH:
     ☐ auth -> create real user + credential binding
@@ -41,9 +35,7 @@ Design:
   ☐ Se decider sur les fonts (definir une convention sur les serifs)
 
 Convention:
-  ☐ Create a eslint-rule to disable import from different layer and different context
-  ✔ Definir une regle d'organisation @done(21-02-07 18:47)
-  ☐ reactive objet: mySuperVarφ | ref var: mySuperVar$ (but i cant make it to works without too much code.... )
+  ☐ Definir une regle d'organisation
 
 Accessibilité:
   ☐ Ouvrir les modales à partir du router 
@@ -90,5 +82,4 @@ Manifest:
 Animation:
 ✔ Transition entre splash et landing @done(20-08-16 16:46)
 ✔ Landing: "Ici pas de chichi. Oubliez les stéréotypes... les mensonges... le faux... Ton arme ? Ta prose. Toi." @done(20-08-16 16:46)
-  ☐ Augmenter la rapidité des modals
 

@@ -4,15 +4,15 @@ import { createApp } from 'vue'
 import { router } from './router'
 import App from './App.vue'
 import * as globalComponents from './global-registry'
-import { DataLayer } from '../shared/DataLayer.d'
-import { DATA_LAYER } from './__di__'
+import { LOGIC_LAYER } from './__di__'
+import { LogicLayer } from '../logic-layer/types'
 // gsap.registerPlugin(TextPlugin/* SplitText */)
 
 export default function (
-  { dataLayer }: { dataLayer: DataLayer }
+  { logicLayer }: { logicLayer: LogicLayer }
 ) {
   const app = createApp(App)
-  app.provide(DATA_LAYER, dataLayer)
+  app.provide(LOGIC_LAYER, logicLayer)
   app.use(router)
 
   for (const [tag, component] of Object.entries(globalComponents)) {
